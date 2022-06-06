@@ -8,26 +8,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      //    resume: {
-         name: "",
-         email: "",
-         phone: "",
-      //    },
-      };
-  //   this.state={
-  //     //  resume: {
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //       company: "",
-  //       position: "",
-  //       tasks: "",
-  //       startDate: "",
-  //       endDate: "",
-  //  data:[],
-  // }
+      //  resume: {
+        name: "",
+        email: "",
+        phone: "",
+        schoolName:"",
+        schoolSubject:"",
+        schoolStart:"",
+        schoolEnd:"",
+        company: "",
+        position: "",
+        tasks: "",
+        positionStart: "",
+        positionEnd: "",
+   data:[],
+   }
   this.handleChange=this.handleChange.bind(this);
 }
+
   handleChange=(e)=>{
     this.setState({
      //   resume: {
@@ -46,6 +44,7 @@ class App extends Component {
   return (
     <div>
 <General handleChange={this.handleChange}/>
+<Profession handleChange={this.handleChange}/>
     </div>
   );
 }
