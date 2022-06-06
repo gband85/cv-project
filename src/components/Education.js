@@ -5,10 +5,43 @@ class Education extends Component {
         super(props)
     }
     render() {
+        const {schoolName,schoolSubject,schoolStart,schoolEnd,handleChange}=this.props;
         return (
-            <div>
-
-            </div>
+            
+<form>
+        <label htmlFor="schoolName">School</label>
+<input
+    className="uh" 
+    onChange={handleChange}
+value={schoolName}
+type="text"
+id="schoolName"
+/>
+        <label htmlFor="schoolSubject">Subject</label>
+<input
+    className="uh" 
+    onChange={handleChange}
+value={schoolSubject}
+type="text"
+id="schoolSubject"
+/>
+        <label htmlFor="schoolStart">Start Date</label>
+<input
+    className="uh" 
+    onChange={handleChange}
+value={schoolStart}
+type="date"
+id="schoolStart"
+/>
+        <label htmlFor="schoolEnd">End Date</label>
+<input
+    className="uh" 
+    onChange={handleChange}
+value={schoolEnd}
+type="date"
+id="schoolEnd"
+/>
+            </form>
         )
     }
 }
