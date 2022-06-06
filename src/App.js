@@ -44,6 +44,7 @@ class App extends Component {
   return (
     <div>
 <General handleChange={this.handleChange}/>
+<Education handleChange={this.handleChange}/>
 <Profession handleChange={this.handleChange}/>
     </div>
   );
