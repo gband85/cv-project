@@ -11,7 +11,7 @@ class Education extends Component {
 <form>
         <label htmlFor="schoolName">School</label>
 <input
-    className="uh" 
+    className="" 
     onChange={handleChange}
 value={schoolName}
 type="text"
@@ -19,7 +19,7 @@ id="schoolName"
 />
         <label htmlFor="schoolSubject">Subject</label>
 <input
-    className="uh" 
+    className="" 
     onChange={handleChange}
 value={schoolSubject}
 type="text"
@@ -27,7 +27,7 @@ id="schoolSubject"
 />
         <label htmlFor="schoolStart">Start Date</label>
 <input
-    className="uh" 
+    className="" 
     onChange={handleChange}
 value={schoolStart}
 type="date"
@@ -35,7 +35,7 @@ id="schoolStart"
 />
         <label htmlFor="schoolEnd">End Date</label>
 <input
-    className="uh" 
+    className="" 
     onChange={handleChange}
 value={schoolEnd}
 type="date"

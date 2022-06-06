@@ -25,21 +25,21 @@ render() {
         <label htmlFor="name">Name</label>
 <input
 name="name"
-    className="uh" 
+    className="" 
     onChange={handleChange}
 value={name}
 type="text"
 id="name"
 />
         <label htmlFor="email">Email</label>
-<input className="uh"
+<input className=""
     onChange={handleChange}
 value={email}
 type="email"
 id="email"
 />
         <label htmlFor="phone">Phone</label>
-<input className="uh" 
+<input className="" 
     onChange={handleChange}
     value={phone}
     type="number"

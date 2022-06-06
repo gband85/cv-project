@@ -11,7 +11,7 @@ class Profession extends Component {
         return (
             <form>
  <label htmlFor="company">Company</label>
-<input className="uh"
+<input className=""
   name="company"
 onChange={handleChange}
 value={company}
@@ -19,7 +19,7 @@ type="text"
 id="company"
 />
         <label htmlFor="position">Position</label>
-<input className="uh"
+<input className=""
    name='position'
    onChange={handleChange}
    value={position}
@@ -27,23 +27,20 @@ id="company"
   id="position"
 />
         <label htmlFor="tasks">Tasks</label>
-<textarea className="uh"
-name='tasks'
+<textarea className=""
 onChange={handleChange}
 value={tasks}
 id="tasks"
 ></textarea>
 <label htmlFor="positionStart">Start date</label>
-<input className="uh"
-   name='startDate'
+<input className=""
    onChange={handleChange}
    value={positionStart}
   type='date'
   id="positionStart"
 />
         <label htmlFor="positionEnd">End date</label>
-<input className="uh"
-   name='endDate'
+<input className=""
    onChange={handleChange}
    value={positionEnd}
   type='date'
