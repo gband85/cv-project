@@ -19,6 +19,11 @@ schoolName: "",
 schoolSubject: "",
 schoolStart: "",
 schoolEnd: "",
+company: "",
+position: "",
+tasks: "",
+positionStart: "",
+positionEnd: "",
    }
   this.handleChange=this.handleChange.bind(this);
 }
@@ -51,7 +56,7 @@ e.preventDefault();
 };
   render() {
      const {name,email,phone,schoolName,schoolSubject,schoolStart,schoolEnd,company,position,tasks,positionStart,positionEnd}  = this.state;
-    const {handleChange,onSubmitGeneral,onSubmitEducation}=this;
+    const {handleChange,onSubmitGeneral,onSubmitEducation,onSubmitProfession}=this;
   return (
     <div>
     <form onSubmit={onSubmitGeneral}>
@@ -124,7 +129,7 @@ required
 <button type='submit'>Save</button>
             </form>
            {this.state.sendEducation && <Education {...this.state}/>}
-           <form>
+           <form onSubmit={onSubmitProfession}>
  <label htmlFor="company">Company</label>
 <input className=""
   name="company"
@@ -164,6 +169,7 @@ id="tasks"
 <button type='submit'>Save</button>
  
 </form>
+{this.state.sendProfession && <Profession {...this.state}/>}
 </div>
   );
 }
