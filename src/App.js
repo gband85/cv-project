@@ -30,7 +30,25 @@ schoolEnd: "",
 
     });
 };
+onSubmitGeneral = (e) => {
+    this.setState({
+      sendGeneral:true
+  });
+  e.preventDefault();
+};
 
+onSubmitEducation = (e) => {
+    this.setState({
+      sendEducation:true
+  });
+  e.preventDefault();
+};
+onSubmitProfession = (e) => {
+  this.setState({
+    sendProfession:true
+});
+e.preventDefault();
+};
   render() {
      const {name,email,phone,schoolName,schoolSubject,schoolStart,schoolEnd,company,position,tasks,positionStart,positionEnd}  = this.state;
     const {handleChange,onSubmitGeneral,onSubmitEducation}=this;
