@@ -1,5 +1,6 @@
 //import { getSuggestedQuery } from "@testing-library/react";
 import React, { Component } from "react";
+import '../styles/forms.css'
 
 class GeneralForm extends Component {
     constructor(props) {
