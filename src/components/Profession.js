@@ -8,6 +8,7 @@ class Profession extends Component {
     render() {
 
         return (
+            <div>
 <ul>
     <li>{this.props.company}</li>
     <li>{this.props.position}</li>
@@ -15,6 +16,8 @@ class Profession extends Component {
     <li>{this.props.positionStart}</li>
     <li>{this.props.positionEnd}</li>
 </ul>
+<button type="button" onClick={this.props.editProfessionFn}>Edit</button>
+</div>
         )
     }
 }
