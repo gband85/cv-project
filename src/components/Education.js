@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import '../styles/sections.css'
+import Icon from '@mdi/react';
+import { mdiPencil } from '@mdi/js'; 
 
 class Education extends Component {
     constructor(props) {
@@ -14,10 +16,15 @@ class Education extends Component {
             <ul>
                 <li className="section-position">{this.props.schoolDegree}</li>
                 <li className="section-place">{this.props.schoolName} - {this.props.schoolLocation}</li>
-                <li>{this.props.schoolStart} to {this.props.schoolEnd}</li>
+                <li className="section-dates">{this.props.schoolStart} to {this.props.schoolEnd}</li>
                             </ul>
             <div>
-                <button type="button" onClick={this.props.editEducationFn}>Edit</button>
+                <button type="button" onClick={this.props.editEducationFn}><Icon path={mdiPencil}
+        size={1}
+        horizontal
+        vertical
+        rotate={180}
+        /></button>
             </div>            
             </div>
             </div>
