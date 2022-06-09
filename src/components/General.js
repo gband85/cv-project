@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/sections.css'
 
 class General extends Component {
       constructor(props) {
@@ -6,13 +7,15 @@ class General extends Component {
       }
   render() {
     return (
-          <div>
+          <div className="section">
       <ul>
         <li>{this.props.name}</li>
         <li>{this.props.email}</li>
         <li>{this.props.phone}</li>
         </ul>
+        <div>
       <button type="button" onClick={this.props.editGeneralFn}>Edit</button>
+      </div>
       </div>
     )
     }

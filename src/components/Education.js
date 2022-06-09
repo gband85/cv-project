@@ -7,14 +7,16 @@ class Education extends Component {
     render() {
         
         return (
-            <div>
+            <div className="section">
             <ul>
                 <li>{this.props.schoolName}</li>
                 <li>{this.props.schoolSubject}</li>
                 <li>{this.props.schoolStart}</li>
                 <li>{this.props.schoolEnd}</li>
             </ul>
-            <button type="button" onClick={this.props.editEducationFn}>Edit</button>
+            <div>
+                <button type="button" onClick={this.props.editEducationFn}>Edit</button>
+            </div>            
             </div>
         )
     }
