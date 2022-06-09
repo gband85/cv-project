@@ -101,7 +101,7 @@ if (this.state.editProfession) {
    professionSection=<Profession {...this.state} editProfessionFn={this.editProfessionFn}/>
  }
   return (
-    <div>
+    <div className='container'>
 {generalSection}
 {/* <bsutton onClick={this.sendGeneral()}></button> */}
 {educationSection}
