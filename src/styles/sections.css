@@ -38,3 +38,7 @@ margin-top: 10px;
 background: transparent;
 border: none;
 }
+.section button:hover{
+background-color: seashell;
+cursor: pointer;
+}
