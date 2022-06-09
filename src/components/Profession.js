@@ -10,11 +10,12 @@ class Profession extends Component {
         return (
             <div className="section">
 <ul>
-    <li>{this.props.company}</li>
-    <li>{this.props.position}</li>
+    <li className="section-title">{this.props.position}</li>
+    <li className="section-place">{this.props.company}</li>
+<li>{this.props.positionStart} to {this.props.positionEnd}</li>    
     <li>{this.props.tasks}</li>
-    <li>{this.props.positionStart}</li>
-    <li>{this.props.positionEnd}</li>
+    
+   
 </ul>
 <div>
 <button type="button" onClick={this.props.editProfessionFn}>Edit</button>

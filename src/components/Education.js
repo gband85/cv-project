@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/sections.css'
 
 class Education extends Component {
     constructor(props) {
@@ -9,11 +10,10 @@ class Education extends Component {
         return (
             <div className="section">
             <ul>
-                <li>{this.props.schoolName}</li>
-                <li>{this.props.schoolSubject}</li>
-                <li>{this.props.schoolStart}</li>
-                <li>{this.props.schoolEnd}</li>
-            </ul>
+                <li className="section-title">{this.props.schoolDegree}</li>
+                <li className="section-place">{this.props.schoolName}</li>
+                <li>{this.props.schoolStart} to {this.props.schoolEnd}s</li>
+                            </ul>
             <div>
                 <button type="button" onClick={this.props.editEducationFn}>Edit</button>
             </div>            
