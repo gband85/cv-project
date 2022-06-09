@@ -9,9 +9,9 @@ class ProfessionForm extends Component {
 const {handleChange,onSubmitProfession,company,position,tasks,positionStart,positionEnd}=this.props
         return (
             <form onSubmit={onSubmitProfession}>
-            <div>
+            <div className="input-field">
             <label htmlFor="company">Company</label>
-           <input className="input-field"
+           <input
              name="company"
            onChange={handleChange}
            value={company}
