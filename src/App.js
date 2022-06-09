@@ -6,24 +6,27 @@ import Education from './components/Education';
 import General from './components/General';
 import GeneralForm from './components/GeneralForm';
 import ProfessionForm from './components/ProfessionForm';
+import './styles/sections.css'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state={
       editGeneral: false,
-      editEducation: false,
-      editProfession: false,
+      editEducation: true,
+      editProfession: true,
        name: "Garrett Anderson",
         email: "keaton85@gmail.com",
         phone: "2566048356",
-schoolName: "UAH",
-schoolSubject: "Biology",
+schoolName: "University of Alabama in Huntsville",
+schoolDegree: "Bachelor of Science in Biology",
+schoolLocation: "Huntsville, AL",
 schoolStart: "2008-10-22",
 schoolEnd: "2012-11-02",
  company: "Widgets, Inc.",
+ companyLocation: "Rochester, NY",
  position: "Head Widgeteer",
- tasks: ["build widgets","fix widgets","sell widgets"],
+ tasks: ["Build widgets from appropriate source materials","Fix widgets that are returned","Sell widgets on website"],
  positionStart: "2013-02-13",
  positionEnd: "2019-11-02",
    }
