@@ -5,9 +5,10 @@ class EducationForm extends Component {
         super(props)
     }
     render() {
-        const {schoolName,schoolSubject,schoolStart,schoolEnd,handleChange,onSubmitEducation}=this.props;
+        const {schoolName,schoolDegree,schoolStart,schoolEnd,handleChange,onSubmitEducation}=this.props;
         return (
 <form onSubmit={onSubmitEducation}>
+<div className="input-field">
         <label htmlFor="schoolName">School</label>
 <input
     className="" 
@@ -17,15 +18,19 @@ type="text"
 id="schoolName"
 required
 />
+</div>
+<div className="input-field">
         <label htmlFor="schoolSubject">Subject</label>
 <input
     className="" 
     onChange={handleChange}
-value={schoolSubject}
+value={schoolDegree}
 type="text"
 id="schoolSubject"
 required
 />
+</div>
+<div className="input-field">
         <label htmlFor="schoolStart">Start Date</label>
 <input
     className="" 
@@ -35,6 +40,8 @@ type="date"
 id="schoolStart"
 required
 />
+</div>
+<div className="input-field">
         <label htmlFor="schoolEnd">End Date</label>
 <input
     className="" 
@@ -44,7 +51,10 @@ type="date"
 id="schoolEnd"
 required
 />
+</div>
+<div className="btn-group">
 <button type='submit'>Save</button>
+</div>
             </form>
 
         )
