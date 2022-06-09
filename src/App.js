@@ -21,11 +21,11 @@ schoolName: "UAH",
 schoolSubject: "Biology",
 schoolStart: "2008-10-22",
 schoolEnd: "2012-11-02",
-// company: "",
-// position: "",
-// tasks: "",
-// positionStart: "",
-// positionEnd: "",
+ company: "Widgets, Inc.",
+ position: "Head Widgeteer",
+ tasks: ["build widgets","fix widgets","sell widgets"],
+ positionStart: "2013-02-13",
+ positionEnd: "2019-11-02",
    }
   this.handleChange=this.handleChange.bind(this);
   this.editGeneralFn=this.editGeneralFn.bind(this);
@@ -51,13 +51,13 @@ onSubmitEducation = (e) => {
 };
 onSubmitProfession = (e) => {
   this.setState({
-    sendProfession: true
+    editProfession: false,
 });
 e.preventDefault();
 };
 editGeneralFn=()=>{
   this.setState({
-    editGeneral:true
+    editGeneral:true,
   })
    // return <GeneralForm onSubmitGeneral={this.onSubmitGeneral} handleChange={this.handleChange} {...this.state}/>
   }
@@ -98,13 +98,14 @@ if (this.state.editProfession) {
  
  }
  else {
-   professionSection=<Profession {...this.state} editEducationFn={this.editEducationFn}/>
+   professionSection=<Profession {...this.state} editProfessionFn={this.editProfessionFn}/>
  }
   return (
     <div>
 {generalSection}
 {/* <bsutton onClick={this.sendGeneral()}></button> */}
 {educationSection}
+{professionSection}
            {/* {this.state.sendEducation && <Education {...this.state}/>}
           
 {this.state.sendProfession && <Profession {...this.state}/>} } */}
