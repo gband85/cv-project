@@ -1,10 +1,19 @@
 form {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
+    gap: 10px;
 }
 form > input {
     /* width: 50%; */
 }
-button {
+button[type="submit"] {
     /* width: 25%; */
+    justify-self: left;
+}
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+.input-field input {
+    height: 30px;
 }
