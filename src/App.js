@@ -5,21 +5,22 @@ import Profession from './components/Profession';
 import Education from './components/Education';
 import General from './components/General';
 import GeneralForm from './components/GeneralForm';
+import ProfessionForm from './components/ProfessionForm';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state={
       editGeneral: false,
-      sendEducation: false,
-      sendProfession: false,
+      editEducation: false,
+      editProfession: false,
        name: "Garrett",
         email: "keaton85@gmail.com",
         phone: "2566048356",
-schoolName: "",
-schoolSubject: "",
-schoolStart: "",
-schoolEnd: "",
+schoolName: "UAH",
+schoolSubject: "Biology",
+schoolStart: "2008-10-22",
+schoolEnd: "2012-11-02",
 // company: "",
 // position: "",
 // tasks: "",
@@ -38,13 +39,13 @@ schoolEnd: "",
 onSubmitGeneral = (e) => {
   e.preventDefault();
   this.setState({
-      sendGeneral: true
+      editGeneral: false
   });
 };
 
 onSubmitEducation = (e) => {
     this.setState({
-      sendEducation: true
+      editEducation: false
   });
   e.preventDefault();
 };
@@ -60,11 +61,15 @@ editGeneralFn=()=>{
   })
    // return <GeneralForm onSubmitGeneral={this.onSubmitGeneral} handleChange={this.handleChange} {...this.state}/>
   }
- 
+ editEducationFn=()=>{
+   this.setState({
+     editEducation:true,
+   })
+ }
 
 
   render() {
-    let generalSection,educationSection;
+    let generalSection,educationSection,professionSection;
     //  const {schoolName,schoolSubject,schoolStart,schoolEnd,company,position,tasks,positionStart,positionEnd,sendGeneral}  = this.state;
     //const {handleChange,onSubmitGeneral,onSubmitEducation,onSubmitProfession}=this;
    if (this.state.editGeneral) {
@@ -76,58 +81,27 @@ editGeneralFn=()=>{
 
    }
 
-if (this.state.sendEducation) {
-educationSection=<Education {...this.state} />
+if (this.state.editEducation) {
+ educationSection= <EducationForm onSubmitEducation={this.onSubmitEducation} handleChange={this.handleChange} {...this.state}/>
+
 }
 else {
-  educationSection=<EducationForm onSubmitEducation={this.onSubmitEducation} handleChange={this.handleChange} {...this.state}/>
+  educationSection=<Education {...this.state} editEducationFn={this.editEducationFn}/>
 }
+if (this.state.editProfession) {
+  professionSection= <ProfessionForm onSubmitProfession={this.onSubmitProfession} handleChange={this.handleChange} {...this.state}/>
+ 
+ }
+ else {
+   professionSection=<Profession {...this.state} editEducationFn={this.editEducationFn}/>
+ }
   return (
     <div>
 {generalSection}
 {/* <bsutton onClick={this.sendGeneral()}></button> */}
 {educationSection}
            {/* {this.state.sendEducation && <Education {...this.state}/>}
-           <form onSubmit={onSubmitProfession}>
- <label htmlFor="company">Company</label>
-<input className=""
-  name="company"
-onChange={handleChange}
-value={company}
-type="text"
-id="company"
-/>
-        <label htmlFor="position">Position</label>
-<input className=""
-   name='position'
-   onChange={handleChange}
-   value={position}
-  type='text'
-  id="position"
-/>
-        <label htmlFor="tasks">Tasks</label>
-<textarea className=""
-onChange={handleChange}
-value={tasks}
-id="tasks"
-></textarea>
-<label htmlFor="positionStart">Start date</label>
-<input className=""
-   onChange={handleChange}
-   value={positionStart}
-  type='date'
-  id="positionStart"
-/>
-        <label htmlFor="positionEnd">End date</label>
-<input className=""
-   onChange={handleChange}
-   value={positionEnd}
-  type='date'
-  id="positionEnd"
-/>
-<button type='submit'>Save</button>
- 
-</form>
+          
 {this.state.sendProfession && <Profession {...this.state}/>} } */}
 </div>
   );
