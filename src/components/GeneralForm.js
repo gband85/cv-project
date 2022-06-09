@@ -34,7 +34,9 @@ id="email"
     id="phone"
 />
 </div>
+<div className="btn-group">
 <button type='submit'>Save</button>
+</div>
 </form> 
         
     )
