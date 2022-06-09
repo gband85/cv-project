@@ -12,8 +12,11 @@ render() {
   return (
 
          <form onSubmit={onSubmitGeneral}>
-        <label htmlFor="name">Name</label>
+         <div className="input-field">
+        <label htmlFor="name" >Name</label>
 <input className="" onChange={handleChange} value={name} type="text" id="name"/>
+</div>
+<div className="input-field">
         <label htmlFor="email">Email</label>
 <input className=""
     onChange={handleChange}
@@ -21,6 +24,8 @@ value={email}
 type="email"
 id="email"
 />
+</div>
+<div className="input-field">
         <label htmlFor="phone">Phone</label>
 <input className="" 
     onChange={handleChange}
@@ -28,6 +33,7 @@ id="email"
     type="number"
     id="phone"
 />
+</div>
 <button type='submit'>Save</button>
 </form> 
         
