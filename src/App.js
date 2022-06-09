@@ -66,6 +66,11 @@ editGeneralFn=()=>{
      editEducation:true,
    })
  }
+ editProfessionFn=()=>{
+   this.setState({
+     editProfession: true,
+   })
+ }
 
 
   render() {
