@@ -14,7 +14,7 @@ class App extends Component {
       editGeneral: false,
       editEducation: false,
       editProfession: false,
-       name: "Garrett",
+       name: "Garrett Anderson",
         email: "keaton85@gmail.com",
         phone: "2566048356",
 schoolName: "UAH",
