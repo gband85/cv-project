@@ -10,9 +10,9 @@ class Education extends Component {
         return (
             <div className="section">
             <p className="section-title">Education</p>
-<div>
+<div className="section-body">
             <ul>
-                <li className="position-title">{this.props.schoolDegree}</li>
+                <li className="section-position">{this.props.schoolDegree}</li>
                 <li className="section-place">{this.props.schoolName} - {this.props.schoolLocation}</li>
                 <li>{this.props.schoolStart} to {this.props.schoolEnd}</li>
                             </ul>
