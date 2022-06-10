@@ -6,7 +6,8 @@ import Education from './components/Education';
 import General from './components/General';
 import GeneralForm from './components/GeneralForm';
 import ProfessionForm from './components/ProfessionForm';
-import './styles/sections.css'
+import './styles/sections.css';
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor(props) {
@@ -18,27 +19,51 @@ class App extends Component {
        name: "Garrett Anderson",
         email: "keaton85@gmail.com",
         phone: "2566048356",
-schoolName: "University of Alabama in Huntsville",
-schoolDegree: "Bachelor of Science in Biology",
-schoolLocation: "Huntsville, AL",
-schoolStart: "2008-10-22",
-schoolEnd: "2012-11-02",
- company: "Widgets, Inc.",
+        school: {
+                    schoolDegree: "Bachelor of Science in Biology",
+          schoolName: "University of Alabama in Huntsville",
+          schoolLocation: "Huntsville, AL",
+          schoolStart: "2008-10-22",
+          schoolEnd: "2012-11-02",
+          id: uniqid()
+        },
+schools:[],
+jobs:[],
+job:{
+   company: "Widgets, Inc.",
  companyLocation: "Rochester, NY",
  position: "Head Widgeteer",
- tasks: ["Build widgets from appropriate source materials","Fix widgets that are returned","Sell widgets on website"],
- positionStart: "2013-02-13",
+  tasks: ["Build widgets from appropriate source materials","Fix widgets that are returned","Sell widgets on website"],
+   positionStart: "2013-02-13",
  positionEnd: "2019-11-02",
+}
+    
+
    }
-  this.handleChange=this.handleChange.bind(this);
+  this.handleEducationChange=this.handleEducationChange.bind(this);
   this.editGeneralFn=this.editGeneralFn.bind(this);
 }
 
-  handleChange=(e)=>{
+  handleGeneralChange=(e)=>{
     this.setState({
             [e.target.id]: e.target.value
     });
 };
+handleEducationChange=(e)=>{
+  this.setState({
+    school: {
+         ...this.state.school, [e.target.id]: e.target.value,
+          id: this.state.school.id,
+    }
+  });
+};
+// handleProfessionChange=(e)=>{
+//   this.setState({
+//     schoojl: {
+//           [e.target.id]: e.target.value
+//     }
+//   });
+// };
 onSubmitGeneral = (e) => {
   e.preventDefault();
   this.setState({
@@ -48,7 +73,16 @@ onSubmitGeneral = (e) => {
 
 onSubmitEducation = (e) => {
     this.setState({
-      editEducation: false
+      editEducation: false,
+      schools: this.state.schools.concat(this.state.school),
+      school: {
+        schoolDegree: "",
+        schoolName: "",          
+          schoolLocation: "",
+          schoolStart: "",
+          schoolEnd: "",
+          id: uniqid()
+      }
   });
   e.preventDefault();
 };
@@ -81,7 +115,7 @@ editGeneralFn=()=>{
     //  const {schoolName,schoolSubject,schoolStart,schoolEnd,company,position,tasks,positionStart,positionEnd,sendGeneral}  = this.state;
     //const {handleChange,onSubmitGeneral,onSubmitEducation,onSubmitProfession}=this;
    if (this.state.editGeneral) {
-           generalSection=<GeneralForm onSubmitGeneral={this.onSubmitGeneral} handleChange={this.handleChange} {...this.state}/>
+           generalSection=<GeneralForm onSubmitGeneral={this.onSubmitGeneral} handleChange={this.handleGeneralChange} {...this.state}/>
 
    }
    else { 
@@ -90,7 +124,7 @@ editGeneralFn=()=>{
    }
 
 if (this.state.editEducation) {
- educationSection= <EducationForm onSubmitEducation={this.onSubmitEducation} handleChange={this.handleChange} {...this.state}/>
+ educationSection= <EducationForm onSubmitEducation={this.onSubmitEducation} handleEducationChange={this.handleEducationChange} {...this.state}/>
 
 }
 else {
