@@ -8,18 +8,18 @@ class GeneralForm extends Component {
     }
 
 render() {
-    const {onSubmitGeneral,handleChange,name,email,phone}=this.props;
+    const {onSubmitGeneral,handleGeneralChange,name,email,phone}=this.props;
   return (
 
          <form onSubmit={onSubmitGeneral}>
          <div className="input-field">
         <label htmlFor="name" >Name</label>
-<input className="" onChange={handleChange} value={name} type="text" id="name"/>
+<input className="" onChange={handleGeneralChange} value={name} type="text" id="name"/>
 </div>
 <div className="input-field">
         <label htmlFor="email">Email</label>
 <input className=""
-    onChange={handleChange}
+    onChange={handleGeneralChange}
 value={email}
 type="email"
 id="email"
@@ -28,7 +28,7 @@ id="email"
 <div className="input-field">
         <label htmlFor="phone">Phone</label>
 <input className="" 
-    onChange={handleChange}
+    onChange={handleGeneralChange}
     value={phone}
     type="number"
     id="phone"

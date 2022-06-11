@@ -6,15 +6,15 @@ class ProfessionForm extends Component {
     }
 
     render() {
-const {handleChange,onSubmitProfession,company,position,tasks,positionStart,positionEnd}=this.props
+const {job,handleProfessionChange,onSubmitProfession,company,position,tasks,positionStart,positionEnd}=this.props
         return (
             <form onSubmit={onSubmitProfession}>
             <div className="input-field">
             <label htmlFor="company">Company</label>
            <input
              name="company"
-           onChange={handleChange}
-           value={company}
+           onChange={handleProfessionChange}
+           value={job.company}
            type="text"
            id="company"
            />
@@ -23,8 +23,8 @@ const {handleChange,onSubmitProfession,company,position,tasks,positionStart,posi
                    <label htmlFor="position">Position</label>
            <input
               name='position'
-              onChange={handleChange}
-              value={position}
+              onChange={handleProfessionChange}
+              value={job.position}
              type='text'
              id="position"
            />
@@ -32,16 +32,16 @@ const {handleChange,onSubmitProfession,company,position,tasks,positionStart,posi
            <div className="input-field">
                    <label htmlFor="tasks">Tasks</label>
            <textarea
-           onChange={handleChange}
-           value={tasks}
+           onChange={handleProfessionChange}
+           value={job.tasks}
            id="tasks"
            ></textarea>
            </div>
            <div className="input-field">
            <label htmlFor="positionStart">Start date</label>
            <input
-              onChange={handleChange}
-              value={positionStart}
+              onChange={handleProfessionChange}
+              value={job.positionStart}
              type='date'
              id="positionStart"
            />
@@ -49,8 +49,8 @@ const {handleChange,onSubmitProfession,company,position,tasks,positionStart,posi
            <div className="input-field">
                    <label htmlFor="positionEnd">End date</label>
            <input
-              onChange={handleChange}
-              value={positionEnd}
+              onChange={handleProfessionChange}
+              value={job.positionEnd}
              type='date'
              id="positionEnd"
            />
