@@ -22,6 +22,17 @@ setEditMode=(value)=>{
         editMode: value
     })
 }
+setSchool=(key,value)=>{
+    this.setState({
+        ...this.state.school,
+school: {
+[key]:value
+}
+    })
+}
+handleChange=(e)=>{
+    this.setSchool(e.target.id,e.target.value)
+}
 render() {
   const editTemplate=(
 <form onSubmit={this.handleSubmit}>
