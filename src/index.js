@@ -3,10 +3,55 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
 
+const DEGREE_DATA=     [
+  {
+    schoolDegree: "Bachelor of Science in Biology2",
+    schoolName: "University of Alabama in Huntsville",
+   // schoolLocation: "Huntsville, AL",
+    schoolStart: "2008-10-22",
+    schoolEnd: "2012-11-02",
+    id: "school-0"
+  },
+  {
+    schoolDegree: "Bachelor of Science in Biology3",
+    schoolName: "University of Alabama in Huntsville",
+   // schoolLocation: "Huntsville, AL",
+    schoolStart: "2008-10-22",
+    schoolEnd: "2012-11-02",
+    id: "school-1",
+  },
+];
+const JOB_DATA=[{
+  position: "Head Widgeteer",
+  company: "Widgets, Inc.",
+  companyLocation: "Rochester, NY",        
+  tasks: [
+    "Build widgets from appropriate source materials",
+    "Fix widgets that are returned",
+    "Sell widgets on website",
+  ],
+  positionStart: "2013-02-13",
+  positionEnd: "2019-11-02",
+  id: "job-0",
+},
+{
+  position: "CEO",
+  company: "Widgets, Inc.",
+  companyLocation: "Rochester, NY",        
+  tasks: [
+    "Build widgets from appropriate source materials",
+    "Fix widgets that are returned",
+    "Sell widgets on website",
+  ],
+  positionStart: "2020-02-13",
+  positionEnd: "2020-11-02",
+  id: "job-1",
+}]
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App degrees={DEGREE_DATA} jobs={JOB_DATA}/>
   </React.StrictMode>
 );
 
