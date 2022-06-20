@@ -18,6 +18,70 @@ class Job extends Component {
     }
   }
   render() {
+    const editTemplate=(
+      <form onSubmit={this.handleSubmit}>
+      <div className="input-field">
+             <label htmlFor="jobPosition">Position</label>
+     <input
+        name="jobPosition"
+        onChange={this.handleChange}
+        value={this.state.newJob.jobPosition}
+       type="text"
+       id="jobPosition"
+     />
+     </div>
+      <div className="input-field">
+      <label htmlFor="jobCompany">Company</label>
+     <input
+       name="jobCompany"
+     onChange={this.handleChange}
+     value={this.state.newJob.jobCompany}
+     type="text"
+     id="jobCompany"
+     />
+</div>     
+<div className="input-field">
+     <label htmlFor="jobLocation">Location</label>
+     <input
+        onChange={this.handleChange}
+        value={this.state.newJob.jobLocation}
+       type="date"
+       id="jobLocation"
+     />
+     </div>
+     <div className="input-field">
+     <label htmlFor="jobStart">Start date</label>
+     <input
+        onChange={this.handleChange}
+        value={this.state.newJob.jobStart}
+       type="date"
+       id="jobStart"
+     />
+     </div>
+     <div className="input-field">
+             <label htmlFor="jobEnd">End date</label>
+     <input
+        onChange={this.handleChange}
+        value={this.state.newJob.jobEnd}
+       type="date"
+       id="jobEnd"
+     />
+     </div>
+     <div className="input-field">
+             <label htmlFor="jobTasks">Tasks</label>
+     <textarea
+     onChange={this.handleChange}
+     value={this.state.newJob.jobTasks}
+     id="jobTasks"
+     ></textarea>
+     </div>
+     <div className="btn-group">
+     <button type="submit">Save</button>
+      </div>
+     </form>
+  )
+
+    
     return (
       <li>
         <p className="section-position">{this.props.position}</p>
