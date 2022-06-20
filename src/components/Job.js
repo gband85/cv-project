@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Icon from "@mdi/react";
-import { mdiPencil } from "@mdi/js";
+import { mdiPencil, mdiTrashCanOutline } from "@mdi/js";
 
 class Job extends Component {
   constructor(props) {
@@ -80,27 +80,48 @@ class Job extends Component {
       </div>
      </form>
   )
-
+const viewTemplate=(
+  <li>
+  <p className="section-position">{this.props.job.jobPosition}</p>
+  <p className="section-place">
+    {this.props.job.jobCompany} - {this.props.job.jobLocation}
+  </p>
+  <p className="section-dates">
+    {this.props.job.jobStart} to {this.props.job.jobEnd}
+  </p>
+  <ul className="section-tasks">
+    {this.props.job.jobTasks.map((task) => {
+      return <li>{task}</li>;
+    })}
+  </ul>
+  <button type="button" onClick={()=>
+        {
+            this.setEditMode(true)
+            this.setNewJob(this.props.job)
+            }}
+            ><Icon path={mdiPencil}
+    size={1}
+    horizontal
+    vertical
+    rotate={180}
+    /></button>
+    <button type="button" onClick={()=>this.props.deleteJob(this.props.id)}><Icon path={mdiTrashCanOutline}
+    size={1}
+    horizontal
+    vertical
+    rotate={180}
+    /></button>
+</li>
+)
     
-    return (
-      <li>
-        <p className="section-position">{this.props.position}</p>
-        <p className="section-place">
-          {this.props.company} - {this.props.companyLocation}
-        </p>
-        <p className="section-dates">
-          {this.props.positionStart} to {this.props.positionEnd}
-        </p>
-        <ul className="section-tasks">
-          {this.props.tasks.map((task) => {
-            return <li>{task}</li>;
-          })}
-        </ul>
-        <button type="button" onCpck={this.props.editProfessionFn}>
-          <Icon path={mdiPencil} size={1} horizontal vertical rotate={180} />
-        </button>
-      </li>
-    );
+    
+if (this.state.editMode) {
+return editTemplate;
+}
+else {
+return viewTemplate;
+}
+    
   }
 }
 
