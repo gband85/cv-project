@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import SchoolForm from "./components/SchoolForm";
 
 import School from "./components/School";
+import Job from "./components/Job"
+import JobForm from "./components/JobForm"
 import "./styles/sections.css";
 import uniqid from "uniqid";
 import Icon from '@mdi/react';
@@ -17,7 +19,7 @@ class App extends Component {
       email: "keaton85@gmail.com",
       phone: "2566048356",
     schools: this.props.degrees,
-      jobs: [],
+      jobs: this.props.jobs,
     };
  
   }
@@ -85,6 +87,38 @@ key={school.id}
           </div>
 
           </div>
+
+          <div className="section">
+        <p className="section-title">Education</p>
+        <button type="button" onClick={()=>{this.setState({showForm:true})}}><Icon path={mdiPlusBoxOutline}
+    size={1}
+    horizontal
+    vertical
+    rotate={180}
+    /></button>
+        <div className="section-body">
+        <JobForm addSchool={this.addSchool}/>
+          <ul>
+
+            {/*In schools array, for each item,iterate over properties and return p element with property*/}
+            {this.state.jobs.map((job) => {
+              return (
+                <Job
+                id={job.id}
+                job={job}
+key={job.id}
+                deleteSchool={this.deleteSchool}
+                editSchool={this.editSchool}
+
+                />
+
+              );
+            })}
+          </ul>
+          </div>
+
+          </div>
+
       </div>    );
   }
 }
