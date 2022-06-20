@@ -22,29 +22,29 @@ const DEGREE_DATA=     [
   },
 ];
 const JOB_DATA=[{
-  position: "Head Widgeteer",
-  company: "Widgets, Inc.",
-  companyLocation: "Rochester, NY",        
-  tasks: [
+  jobPosition: "Head Widgeteer",
+  jobCompany: "Widgets, Inc.",
+  jobLocation: "Rochester, NY",        
+  jobTasks: [
     "Build widgets from appropriate source materials",
     "Fix widgets that are returned",
     "Sell widgets on website",
   ],
-  positionStart: "2013-02-13",
-  positionEnd: "2019-11-02",
+  jobStart: "2013-02-13",
+  jobEnd: "2019-11-02",
   id: "job-0",
 },
 {
-  position: "CEO",
-  company: "Widgets, Inc.",
-  companyLocation: "Rochester, NY",        
-  tasks: [
+  jobPosition: "CEO",
+  jobCompany: "Widgets, Inc.",
+  jobLocation: "Rochester, NY",        
+  jobTasks: [
     "Build widgets from appropriate source materials",
     "Fix widgets that are returned",
     "Sell widgets on website",
   ],
-  positionStart: "2020-02-13",
-  positionEnd: "2020-11-02",
+  jobStart: "2020-02-13",
+  jobEnd: "2020-11-02",
   id: "job-1",
 }]
 
