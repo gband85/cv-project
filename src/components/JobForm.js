@@ -38,7 +38,7 @@ this.setJob({
          <input
             name="jobPosition"
             onChange={this.handleChange}
-            value={this.state.newJob.jobPosition}
+            value={this.state.job.jobPosition}
            type="text"
            id="jobPosition"
          />
@@ -48,7 +48,7 @@ this.setJob({
          <input
            name="jobCompany"
          onChange={this.handleChange}
-         value={this.state.newJob.jobCompany}
+         value={this.state.job.jobCompany}
          type="text"
          id="jobCompany"
          />
@@ -57,7 +57,7 @@ this.setJob({
          <label htmlFor="jobLocation">Location</label>
          <input
             onChange={this.handleChange}
-            value={this.state.newJob.jobLocation}
+            value={this.state.job.jobLocation}
            type="date"
            id="jobLocation"
          />
@@ -66,7 +66,7 @@ this.setJob({
          <label htmlFor="jobStart">Start date</label>
          <input
             onChange={this.handleChange}
-            value={this.state.newJob.jobStart}
+            value={this.state.job.jobStart}
            type="date"
            id="jobStart"
          />
@@ -75,7 +75,7 @@ this.setJob({
                  <label htmlFor="jobEnd">End date</label>
          <input
             onChange={this.handleChange}
-            value={this.state.newJob.jobEnd}
+            value={this.state.job.jobEnd}
            type="date"
            id="jobEnd"
          />
@@ -84,7 +84,7 @@ this.setJob({
                  <label htmlFor="jobTasks">Tasks</label>
          <textarea
          onChange={this.handleChange}
-         value={this.state.newJob.jobTasks}
+         value={this.state.job.jobTasks}
          id="jobTasks"
          ></textarea>
          </div>
