@@ -36,6 +36,21 @@ class App extends Component {
      schools:value
     })
   }
+  deleteSchool=(id)=>{
+    const remainingSchools=this.state.schools.filter(school=>id!==school.id)
+    this.setSchools(remainingSchools)
+  }
+  editSchool=(id,newSchool)=>{
+    console.log(newSchool)
+    const editedSchoolList=this.state.schools.map(school=>{
+      if (id===school.id) {
+        return {...school,...newSchool}
+      }
+      return school
+    })
+    console.log(editedSchoolList)
+    this.setSchools(editedSchoolList)
+  }
   render() {
    
     return (
