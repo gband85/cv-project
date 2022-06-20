@@ -7,18 +7,18 @@ const DEGREE_DATA=     [
   {
     schoolDegree: "Bachelor of Science in Biology2",
     schoolName: "University of Alabama in Huntsville",
-   // schoolLocation: "Huntsville, AL",
+   schoolLocation: "Huntsville, AL",
     schoolStart: "2008-10-22",
     schoolEnd: "2012-11-02",
-    id: "school-0"
+    schoolId: "school-0"
   },
   {
     schoolDegree: "Bachelor of Science in Biology3",
     schoolName: "University of Alabama in Huntsville",
-   // schoolLocation: "Huntsville, AL",
+    schoolLocation: "Huntsville, AL",
     schoolStart: "2008-10-22",
     schoolEnd: "2012-11-02",
-    id: "school-1",
+    schoolId: "school-1",
   },
 ];
 const JOB_DATA=[{
@@ -32,7 +32,7 @@ const JOB_DATA=[{
   ],
   jobStart: "2013-02-13",
   jobEnd: "2019-11-02",
-  id: "job-0",
+  jobId: "job-0",
 },
 {
   jobPosition: "CEO",
@@ -45,7 +45,7 @@ const JOB_DATA=[{
   ],
   jobStart: "2020-02-13",
   jobEnd: "2020-11-02",
-  id: "job-1",
+  jobId: "job-1",
 }]
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
