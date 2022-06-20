@@ -8,13 +8,14 @@ constructor(props) {
 super(props)
 this.state={
 editMode:false,
-school:{
-schoolDegree:"",
-schoolName:"",
-schoolLocation:"",
-schoolStart:"",
-schoolEnd:""
-}
+
+newSchool:{
+    schoolDegree:"",
+    schoolName:"",
+    schoolLocation:"",
+    schoolStart:"",
+    schoolEnd:"",
+    }
 }
 }
 setEditMode=(value)=>{
@@ -22,18 +23,30 @@ setEditMode=(value)=>{
         editMode: value
     })
 }
-setSchool=(key,value)=>{
-    this.setState({
-        ...this.state.school,
-school: {
-[key]:value
-}
-    })
+
+setNewSchool=(school)=>{
+    this.setState({newSchool:school})
 }
 handleChange=(e)=>{
-    this.setSchool(e.target.id,e.target.value)
+    this.setNewSchool({
+        ...this.state.newSchool,
+        [e.target.id]:e.target.value,
+        })
+}
+handleSubmit=(e)=>{
+    e.preventDefault();
+    this.props.editSchool(this.props.school.id,this.state.newSchool)
+    // this.setSchool({
+    //     schoolDegree:"",
+    //     schoolName:"",
+    //     schoolLocation:"",
+    //     schoolStart:"",
+    //     schoolEnd:"",
+    //     })
+    this.setEditMode(false)
 }
 render() {
+    
   const editTemplate=(
 <form onSubmit={this.handleSubmit}>
     <div className="input-field">
@@ -41,7 +54,7 @@ render() {
     <input
         className="" 
         onChange={this.handleChange}
-    value={this.state.school.schoolName}
+    value={this.state.newSchool.schoolName}
     type="text"
     id="schoolName"
     required
@@ -52,7 +65,7 @@ render() {
     <input
         className="" 
        onChange={this.handleChange}
-    value={this.state.school.schoolDegree}
+    value={this.state.newSchool.schoolDegree}
     type="text"
     id="schoolDegree"
     required
@@ -63,7 +76,7 @@ render() {
     <input
         className="" 
        onChange={this.handleChange}
-   value={this.props.school.schoolStart}
+   value={this.state.newSchool.schoolStart}
     type="date"
     id="schoolStart"
     required
@@ -74,7 +87,7 @@ render() {
     <input
         className="" 
        onChange={this.handleChange}
-    value={this.props.school.schoolEnd}
+    value={this.state.newSchool.schoolEnd}
     type="date"
     id="schoolEnd"
     required
@@ -88,15 +101,20 @@ render() {
  const viewTemplate=(
     <li> 
     <p className="section-position">{this.props.school.schoolDegree}</p>
-        <p className="section-place">{this.props.school.schoolName} - {this.props.schoolLocation}</p>
+        <p className="section-place">{this.props.school.schoolName} - {this.props.school.schoolLocation}</p>
         <p className="section-dates">{this.props.school.schoolStart} to {this.props.school.schoolEnd}</p>
-        <button type="button" onClick={()=>this.setEditMode(true)}><Icon path={mdiPencil}
+        <button type="button" onClick={()=>
+        {
+            this.setEditMode(true)
+            this.setNewSchool(this.props.school)
+            }}
+            ><Icon path={mdiPencil}
     size={1}
     horizontal
     vertical
     rotate={180}
     /></button>
-    <button type="button" onClick={()=>console.log("deleted")}><Icon path={mdiTrashCanOutline}
+    <button type="button" onClick={()=>this.props.deleteSchool(this.props.id)}><Icon path={mdiTrashCanOutline}
     size={1}
     horizontal
     vertical
