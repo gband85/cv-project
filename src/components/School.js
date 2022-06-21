@@ -35,7 +35,7 @@ handleChange=(e)=>{
 }
 handleSubmit=(e)=>{
     e.preventDefault();
-    this.props.editSchool(this.props.school.id,this.state.newSchool)
+    this.props.editSchool(this.props.school.schoolId,this.state.newSchool)
     // this.setSchool({
     //     schoolDegree:"",
     //     schoolName:"",
