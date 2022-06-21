@@ -19,10 +19,12 @@ class JobForm extends Component {
   }
 
   handleChange=(e)=>{
+    
 this.setJob({
   ...this.state.job,
   [e.target.id]:e.target.value,
   })
+
 }
 
   handleSubmit=(e)=>{
@@ -58,7 +60,7 @@ this.setJob({
          <input
             onChange={this.handleChange}
             value={this.state.job.jobLocation}
-           type="date"
+           type="text"
            id="jobLocation"
          />
          </div>
