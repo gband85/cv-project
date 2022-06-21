@@ -130,8 +130,8 @@ key={school.schoolId}
                 id={job.jobId}
                 job={job}
 key={job.jobId}
-                deleteSchool={this.deleteSchool}
-                editSchool={this.editSchool}
+                deleteJob={this.deleteJob}
+                editJob={this.editJob}
 
                 />
 
