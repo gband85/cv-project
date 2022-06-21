@@ -14,6 +14,11 @@ class GeneralForm extends Component {
 setGeneral=(data)=>{
     this.setState({data})
 }
+handleChange=(e)=>{
+    this.setGeneral({
+        [e.target.id]:e.target.value
+})
+}
 render() {
     
   return (
@@ -21,12 +26,12 @@ render() {
          <form onSubmit={onSubmitGeneral}>
          <div className="input-field">
         <label htmlFor="name" >Name</label>
-<input className="" onChange={handleGeneralChange} value={name} type="text" id="name"/>
+<input className="" onChange={this.handleChange} value={name} type="text" id="name"/>
 </div>
 <div className="input-field">
         <label htmlFor="email">Email</label>
 <input className=""
-    onChange={handleGeneralChange}
+    onChange={this.handleChange}
 value={email}
 type="email"
 id="email"
@@ -35,7 +40,7 @@ id="email"
 <div className="input-field">
         <label htmlFor="phone">Phone</label>
 <input className="" 
-    onChange={handleGeneralChange}
+    onChange={this.handleChange}
     value={phone}
     type="number"
     id="phone"
