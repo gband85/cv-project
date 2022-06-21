@@ -36,14 +36,7 @@ handleChange=(e)=>{
 handleSubmit=(e)=>{
     e.preventDefault();
     this.props.editSchool(this.props.school.schoolId,this.state.newSchool)
-    // this.setSchool({
-    //     schoolDegree:"",
-    //     schoolName:"",
-    //     schoolLocation:"",
-    //     schoolStart:"",
-    //     schoolEnd:"",
-    //     })
-    this.setEditMode(false)
+       this.setEditMode(false)
 }
 render() {
     
