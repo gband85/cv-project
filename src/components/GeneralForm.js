@@ -11,7 +11,9 @@ class GeneralForm extends Component {
             phone:"",
         }
     }
-
+setGeneral=(data)=>{
+    this.setState({data})
+}
 render() {
     
   return (
