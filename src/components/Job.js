@@ -17,6 +17,12 @@ class Job extends Component {
       }
     }
   }
+  setEditMode=(value)=>{
+    this.setState({
+        editMode: value
+    })
+}
+
   render() {
     const editTemplate=(
       <form onSubmit={this.handleSubmit}>
@@ -90,9 +96,10 @@ const viewTemplate=(
     {this.props.job.jobStart} to {this.props.job.jobEnd}
   </p>
   <ul className="section-tasks">
-    {this.props.job.jobTasks.map((task) => {
-      return <li>{task}</li>;
-    })}
+  
+    {/* {this.props.job.jobTasks.map((task) => { */}
+      <li>{this.props.job.jobTasks}</li>
+    {/* })} */}
   </ul>
   <button type="button" onClick={()=>
         {
