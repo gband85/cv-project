@@ -9,15 +9,18 @@ import "./styles/sections.css";
 import uniqid from "uniqid";
 import Icon from '@mdi/react';
 import { mdiPlusBoxOutline } from '@mdi/js'; 
+import General from "./components/General";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showForm:false,
+      general:{
       name: "Garrett Anderson",
       email: "keaton85@gmail.com",
       phone: "2566048356",
+      },
     schools: this.props.degrees,
       jobs: this.props.jobs,
     };
@@ -80,6 +83,15 @@ class App extends Component {
    
     return (
       <div className="container">
+      <div className="section">
+        <p className="section-title">General Info</p>
+        <General
+        id={"Gen-0"}
+          general={this.state.general}          
+          key={"Gen-0"}
+          editGeneral={this.editGeneral}
+        />
+        </div>
               <div className="section">
         <p className="section-title">Education</p>
         <button type="button" onClick={()=>{this.setState({showForm:true})}}><Icon path={mdiPlusBoxOutline}
