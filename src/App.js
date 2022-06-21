@@ -84,18 +84,22 @@ class App extends Component {
       general:value
     })
   }
+  editGeneral=(newGeneral)=>{
+    this.setGeneral(newGeneral)
+  }
   render() {
    
     return (
       <div className="container">
       <div className="section">
         <p className="section-title">General Info</p>
+        <ul>
         <General
-        id={"Gen-0"}
           general={this.state.general}          
-          key={"Gen-0"}
+          key={this.state.general.id}
           editGeneral={this.editGeneral}
         />
+        </ul>
         </div>
               <div className="section">
         <p className="section-title">Education</p>
