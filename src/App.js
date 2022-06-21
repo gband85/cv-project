@@ -112,7 +112,7 @@ key={school.schoolId}
           </div>
 
           <div className="section">
-        <p className="section-title">Education</p>
+        <p className="section-title">Work Experience</p>
         <button type="button" onClick={()=>{this.setState({showForm:true})}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
