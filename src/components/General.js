@@ -21,6 +21,9 @@ setEditMode=(value)=>{
     editMode: value
   })
 }
+setNewGeneral=(data)=>{
+  this.setState({newGeneral:data})
+}
   render() {
    const editTemplate=(
       <form >
