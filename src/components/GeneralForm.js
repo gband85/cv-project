@@ -5,10 +5,15 @@ import '../styles/forms.css'
 class GeneralForm extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            name:"",
+            email:"",
+            phone:"",
+        }
     }
 
 render() {
-    const {onSubmitGeneral,handleGeneralChange,name,email,phone}=this.props;
+    
   return (
 
          <form onSubmit={onSubmitGeneral}>
