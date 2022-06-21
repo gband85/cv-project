@@ -24,6 +24,12 @@ setEditMode=(value)=>{
 setNewGeneral=(data)=>{
   this.setState({newGeneral:data})
 }
+handleChange=(e)=>{
+  this.setNewGeneral({
+    ...this.state.newGeneral,
+    [e.target.id]:e.target.value
+  })
+}
   render() {
    const editTemplate=(
       <form >
@@ -62,7 +68,10 @@ id="email"
         <p>{this.props.general.phone}</p>
       
       
-        <button type="button" onClick={this.props.editGeneralFn}>
+        <button type="button" onClick={()=>{
+          this.setEditMode(true)
+          this.setNewGeneral(this.props.general)
+        }}>
           <Icon
             path={mdiPencil}
             size={1}
