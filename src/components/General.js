@@ -16,7 +16,11 @@ class General extends Component {
       }
     }
   }
-
+setEditMode=(value)=>{
+  this.setState({
+    editMode: value
+  })
+}
   render() {
    const editTemplate=(
       <form >
