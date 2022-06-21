@@ -9,26 +9,26 @@ class General extends Component {
     super(props);
     this.state={
       editMode: false,
-      newData:{
+      newGeneral:{
         name:"",
         email:"",
         phone:"",
       }
     }
   }
-  
+
   render() {
    const editTemplate=(
-      <form onSubmit={onSubmitGeneral}>
+      <form >
          <div className="input-field">
         <label htmlFor="name" >Name</label>
-<input className="" onChange={this.handleChange} value={this.state.name} type="text" id="name"/>
+<input className="" onChange={this.handleChange} value={this.state.newGeneral.name} type="text" id="name"/>
 </div>
 <div className="input-field">
         <label htmlFor="email">Email</label>
 <input className=""
     onChange={this.handleChange}
-value={this.state.email}
+value={this.state.newGeneral.email}
 type="email"
 id="email"
 />
@@ -37,7 +37,7 @@ id="email"
         <label htmlFor="phone">Phone</label>
 <input className="" 
     onChange={this.handleChange}
-    value={this.state.phone}
+    value={this.state.newGeneral.phone}
     type="number"
     id="phone"
 />
@@ -50,9 +50,9 @@ id="email"
     const viewTemplate=(
       <li className="section-body">
      
-        <p className="general-title">{this.props.name}</p>
-        <p>{this.props.email}</p>
-        <p>{this.props.phone}</p>
+        <p className="general-title">{this.props.general.name}</p>
+        <p>{this.props.general.email}</p>
+        <p>{this.props.general.phone}</p>
       
       
         <button type="button" onClick={this.props.editGeneralFn}>
