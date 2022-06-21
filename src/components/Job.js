@@ -25,6 +25,12 @@ class Job extends Component {
 setNewJob=(job)=>{
   this.setState({newJob:job})
 }
+handleChange=(e)=>{
+  this.setNewJob({
+      ...this.state.newJob,
+      [e.target.id]:e.target.value,
+      })
+}
   render() {
     const editTemplate=(
       <form onSubmit={this.handleSubmit}>
