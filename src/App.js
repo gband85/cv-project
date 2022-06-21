@@ -79,6 +79,11 @@ class App extends Component {
     })
     this.setJobs(editedJobList)
   }
+  setGeneral=(value)=>{
+    this.setState({
+      general:value
+    })
+  }
   render() {
    
     return (
