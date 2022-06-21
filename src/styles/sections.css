@@ -35,14 +35,14 @@ margin-top: 10px;
     font-weight: bold;
     margin-bottom: 10px;
 }
-.section button {
+/* .section button {
 background: transparent;
 border: none;
 }
 .section button:hover{
 background-color: seashell;
 cursor: pointer;
-}
+} */
 .input-field input{
     margin-top: 5px;
     margin-bottom: 15px;
@@ -53,4 +53,19 @@ cursor: pointer;
 .input-field label {
     font-weight: bold;
     margin-bottom: 10px;
+}
+.btn-group button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+.btn-save {
+    background-color: rgb(37, 87, 167);
+    color: white;
+    margin-right: 15px;
+}
+.btn-save:hover {
+    background-color: black;
+    color: white;
 }
