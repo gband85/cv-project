@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   addSchool=(school)=>{
-    const newSchool={...school,id:"school-"+uniqid()}
+    const newSchool={...school,schoolId:"school-"+uniqid()}
     console.log(newSchool)
     // this.setState({
     //  // editEducation: false,
@@ -39,19 +39,29 @@ class App extends Component {
     })
   }
   deleteSchool=(id)=>{
-    const remainingSchools=this.state.schools.filter(school=>id!==school.id)
+    const remainingSchools=this.state.schools.filter(school=>id!==school.schoolId)
     this.setSchools(remainingSchools)
   }
   editSchool=(id,newSchool)=>{
     console.log(newSchool)
     const editedSchoolList=this.state.schools.map(school=>{
-      if (id===school.id) {
+      if (id===school.schoolId) {
         return {...school,...newSchool}
       }
       return school
     })
     console.log(editedSchoolList)
     this.setSchools(editedSchoolList)
+  }
+  addJob=(job)=>{
+    const newJob={...job,jobId:"job-"+uniqid()}
+    console.log(newJob)
+     this.setJobs([...this.state.jobs,newJob])
+  }
+  setJobs=(value)=>{
+    this.setState({
+     jobs:value
+    })
   }
   render() {
    
@@ -73,9 +83,9 @@ class App extends Component {
             {this.state.schools.map((school) => {
               return (
                 <School
-                id={school.id}
+                id={school.schoolId}
                 school={school}
-key={school.id}
+key={school.schoolId}
                 deleteSchool={this.deleteSchool}
                 editSchool={this.editSchool}
 
@@ -97,16 +107,16 @@ key={school.id}
     rotate={180}
     /></button>
         <div className="section-body">
-        <JobForm addSchool={this.addSchool}/>
+        <JobForm addJob={this.addJob}/>
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
             {this.state.jobs.map((job) => {
               return (
                 <Job
-                id={job.id}
+                id={job.jobId}
                 job={job}
-key={job.id}
+key={job.jobId}
                 deleteSchool={this.deleteSchool}
                 editSchool={this.editSchool}
 
