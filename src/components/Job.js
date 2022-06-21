@@ -22,7 +22,9 @@ class Job extends Component {
         editMode: value
     })
 }
-
+setNewJob=(job)=>{
+  this.setState({newJob:job})
+}
   render() {
     const editTemplate=(
       <form onSubmit={this.handleSubmit}>
