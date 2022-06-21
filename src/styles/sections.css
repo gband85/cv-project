@@ -10,6 +10,7 @@
     display: flex;
 justify-content: space-between;
 margin-top: 10px;
+flex-direction: column;
 }
 .section-data {
 display: flex;
@@ -41,4 +42,15 @@ border: none;
 .section button:hover{
 background-color: seashell;
 cursor: pointer;
+}
+.input-field input{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    height: 35px;
+    width: 100%;
+    padding: 5px 10px;
+}
+.input-field label {
+    font-weight: bold;
+    margin-bottom: 10px;
 }
