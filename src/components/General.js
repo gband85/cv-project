@@ -30,9 +30,14 @@ handleChange=(e)=>{
     [e.target.id]:e.target.value
   })
 }
+handleSubmit=(e)=>{
+  e.preventDefault()
+  this.props.editGeneral(this.state.newGeneral)
+  this.setEditMode(false)
+}
   render() {
    const editTemplate=(
-      <form >
+      <form onSubmit={this.handleSubmit}>
          <div className="input-field">
         <label htmlFor="name" >Name</label>
 <input className="" onChange={this.handleChange} value={this.state.newGeneral.name} type="text" id="name"/>
@@ -57,6 +62,7 @@ id="email"
 </div>
 <div className="btn-group">
 <button type='submit'>Save</button>
+<button type='button' onClick={()=>this.setEditMode(false)}>Cancel</button>
 </div>
 </form> 
     )
