@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showForm:false,
+      showSchoolForm:false,
+      showJobForm:false,
       general:{
       name: "Garrett Anderson",
       email: "keaton85@gmail.com",
@@ -26,7 +27,11 @@ class App extends Component {
     };
  
   }
-
+showForm=(section,value)=>{
+this.setState({
+  ["show"+section+"Form"]:value
+})
+}
   addSchool=(school)=>{
     const newSchool={...school,schoolId:"school-"+uniqid()}
     console.log(newSchool)
@@ -91,8 +96,11 @@ class App extends Component {
    
     return (
       <div className="container">
-      <div className="section">
+      <ul>
+      <li className="section">
+      <div className="section-heading">
         <p className="section-title">General Info</p>
+        </div>
         <ul>
         <General
           general={this.state.general}          
@@ -100,17 +108,19 @@ class App extends Component {
           editGeneral={this.editGeneral}
         />
         </ul>
-        </div>
-              <div className="section">
+        </li>
+              <li className="section">
+              <div className="section-heading">
         <p className="section-title">Education</p>
-        <button type="button" onClick={()=>{this.setState({showForm:true})}}><Icon path={mdiPlusBoxOutline}
+        <button type="button" onClick={()=>{this.showForm("School",true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
     vertical
     rotate={180}
     /></button>
+    </div>
         <div className="section-body">
-        <SchoolForm addSchool={this.addSchool}/>
+       {this.state.showSchoolForm ? <SchoolForm addSchool={this.addSchool}/> : null}
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
@@ -130,18 +140,20 @@ key={school.schoolId}
           </ul>
           </div>
 
-          </div>
+          </li>
 
-          <div className="section">
+          <li className="section">
+          <div className="section-heading">
         <p className="section-title">Work Experience</p>
-        <button type="button" onClick={()=>{this.setState({showForm:true})}}><Icon path={mdiPlusBoxOutline}
+        <button type="button" onClick={()=>{this.showForm("Job",true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
     vertical
     rotate={180}
     /></button>
+    </div>
         <div className="section-body">
-        <JobForm addJob={this.addJob}/>
+        {this.state.showJobForm ? <JobForm addJob={this.addJob}/> : null}
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
@@ -161,8 +173,8 @@ key={job.jobId}
           </ul>
           </div>
 
-          </div>
-
+          </li>
+</ul>
       </div>    );
   }
 }
