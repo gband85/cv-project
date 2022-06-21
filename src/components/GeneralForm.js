@@ -26,13 +26,13 @@ render() {
          <form onSubmit={onSubmitGeneral}>
          <div className="input-field">
         <label htmlFor="name" >Name</label>
-<input className="" onChange={this.handleChange} value={name} type="text" id="name"/>
+<input className="" onChange={this.handleChange} value={this.state.name} type="text" id="name"/>
 </div>
 <div className="input-field">
         <label htmlFor="email">Email</label>
 <input className=""
     onChange={this.handleChange}
-value={email}
+value={this.state.email}
 type="email"
 id="email"
 />
@@ -41,7 +41,7 @@ id="email"
         <label htmlFor="phone">Phone</label>
 <input className="" 
     onChange={this.handleChange}
-    value={phone}
+    value={this.state.phone}
     type="number"
     id="phone"
 />
