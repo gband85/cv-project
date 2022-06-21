@@ -31,6 +31,11 @@ handleChange=(e)=>{
       [e.target.id]:e.target.value,
       })
 }
+handleSubmit=(e)=>{
+  e.preventDefault();
+  this.props.editJob(this.props.job.jobId,this.state.newJob)
+  this.setEditMode(false)
+}
   render() {
     const editTemplate=(
       <form onSubmit={this.handleSubmit}>
