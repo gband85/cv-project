@@ -63,6 +63,19 @@ class App extends Component {
      jobs:value
     })
   }
+  deleteJob=(id)=>{
+    const remainingJobs=this.state.jobs.filter(job=>id!==job.jobId)
+    this.setJobs(remainingJobs)
+  }
+  editJob=(id,newJob)=>{
+    const editedJobList=this.state.jobs.map(job=>{
+      if (id===job.jobId) {
+        return {...job,...newJob}
+      }
+      return job
+    })
+    this.setJobs(editedJobList)
+  }
   render() {
    
     return (
