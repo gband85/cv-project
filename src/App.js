@@ -98,9 +98,10 @@ this.setState({
       <div className="container">
       <ul>
       <li className="section">
-      <div className="section-heading">
-        <p className="section-title">General Info</p>
+      <div className="section__heading">
+        <p className="section__title">General Info</p>
         </div>
+        <div className="section__body">
         <ul>
         <General
           general={this.state.general}          
@@ -108,10 +109,11 @@ this.setState({
           editGeneral={this.editGeneral}
         />
         </ul>
+        </div>
         </li>
               <li className="section">
-              <div className="section-heading">
-        <p className="section-title">Education</p>
+              <div className="section__heading">
+        <p className="section__title">Education</p>
         <button type="button" onClick={()=>{this.showForm("School",true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
@@ -119,8 +121,8 @@ this.setState({
     rotate={180}
     /></button>
     </div>
-        <div className="section-body">
-       {this.state.showSchoolForm ? <SchoolForm addSchool={this.addSchool}/> : null}
+        <div className="section__body">
+       {this.state.showSchoolForm ? <SchoolForm addSchool={this.addSchool} showForm={this.showForm}/> : null}
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
@@ -143,8 +145,8 @@ key={school.schoolId}
           </li>
 
           <li className="section">
-          <div className="section-heading">
-        <p className="section-title">Work Experience</p>
+          <div className="section__heading">
+        <p className="section__title">Work Experience</p>
         <button type="button" onClick={()=>{this.showForm("Job",true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
@@ -152,8 +154,8 @@ key={school.schoolId}
     rotate={180}
     /></button>
     </div>
-        <div className="section-body">
-        {this.state.showJobForm ? <JobForm addJob={this.addJob}/> : null}
+        <div className="section__body">
+        {this.state.showJobForm ? <JobForm addJob={this.addJob} showForm={this.showForm}/> : null}
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
