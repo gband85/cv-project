@@ -92,6 +92,7 @@ this.setJob({
          </div>
          <div className="btn-group">
          <button type="submit">Save</button>
+         <button type='button' onClick={()=>this.props.showForm("Job",false)}>Cancel</button>
           </div>
          </form>
       )

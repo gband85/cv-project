@@ -96,6 +96,7 @@ required
 </div>
 <div className="btn-group">
 <button type='submit'>Save</button>
+<button type='button' onClick={()=>this.props.showForm("School",false)}>Cancel</button>
 </div>
             </form>
 
