@@ -114,7 +114,7 @@ this.setState({
               <li className="section">
               <div className="section__heading">
         <p className="section__title">Education</p>
-        <button type="button" onClick={()=>{this.showForm("School",true)}}><Icon path={mdiPlusBoxOutline}
+        <button type="button" className='btn btn--icon' onClick={()=>{this.showForm("School",true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
     vertical
@@ -147,7 +147,7 @@ key={school.schoolId}
           <li className="section">
           <div className="section__heading">
         <p className="section__title">Work Experience</p>
-        <button type="button" onClick={()=>{this.showForm("Job",true)}}><Icon path={mdiPlusBoxOutline}
+        <button type="button" className='btn btn--icon' onClick={()=>{this.showForm("Job",true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
     vertical
