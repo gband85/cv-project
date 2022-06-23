@@ -39,7 +39,7 @@ handleSubmit=(e)=>{
    const editTemplate=(
       <form onSubmit={this.handleSubmit}>
          <div className="input-field">
-        <label htmlFor="name" >Name</label>
+        <label htmlFor="name">Name</label>
 <input className="" onChange={this.handleChange} value={this.state.newGeneral.name} type="text" id="name"/>
 </div>
 <div className="input-field">
@@ -60,21 +60,21 @@ id="email"
     id="phone"
 />
 </div>
-<div className="btn-group">
-<button type='submit'>Save</button>
-<button type='button' onClick={()=>this.setEditMode(false)}>Cancel</button>
+<div className="btn--group">
+<button type='submit' className="btn btn--save">Save</button>
+<button type='button' className="btn btn--cancel" onClick={()=>this.setEditMode(false)}>Cancel</button>
 </div>
 </form> 
     )
     const viewTemplate=(
-      <li className="section-body">
-     
-        <p className="general-title">{this.props.general.name}</p>
+      <div className="section__item--data">
+     <div>
+        <p className="section__title">{this.props.general.name}</p>
         <p>{this.props.general.email}</p>
         <p>{this.props.general.phone}</p>
-      
-      
-        <button type="button" onClick={()=>{
+      </div>
+      <div>
+        <button type="button" className="btn btn--icon" onClick={()=>{
           this.setEditMode(true)
           this.setNewGeneral(this.props.general)
         }}>
@@ -86,8 +86,8 @@ id="email"
             rotate={180}
           />
         </button>
-      
-    </li>
+      </div>
+    </div>
     )
    
 if (this.state.editMode) {
