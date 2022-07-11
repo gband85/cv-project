@@ -37,6 +37,7 @@ handleSubmit=(e)=>{
   this.setEditMode(false)
 }
   render() {
+    let template;
     const editTemplate=(
       <form onSubmit={this.handleSubmit}>
       <div className="input-field">
@@ -95,12 +96,14 @@ handleSubmit=(e)=>{
      ></textarea>
      </div>
      <div className="btn-group">
-     <button type="submit">Save</button>
+     <button type="submit" className="btn btn--save">Save</button>
+     <button type='button' className="btn btn--cancel"  onClick={()=>this.setEditMode(false)}>Cancel</button>
       </div>
      </form>
   )
 const viewTemplate=(
-  <li>
+ <div className="section__item--data">
+ <div>
   <p className="section-position">{this.props.job.jobPosition}</p>
   <p className="section-place">
     {this.props.job.jobCompany} - {this.props.job.jobLocation}
@@ -114,7 +117,9 @@ const viewTemplate=(
       <li>{this.props.job.jobTasks}</li>
     {/* })} */}
   </ul>
-  <button type="button" onClick={()=>
+</div>
+<div className="btn-group-view">
+  <button type="button" className='btn btn--icon' onClick={()=>
         {
             this.setEditMode(true)
             this.setNewJob(this.props.job)
@@ -125,23 +130,26 @@ const viewTemplate=(
     vertical
     rotate={180}
     /></button>
-    <button type="button" onClick={()=>this.props.deleteJob(this.props.id)}><Icon path={mdiTrashCanOutline}
+    <button type="button" className='btn btn--icon' onClick={()=>this.props.deleteJob(this.props.id)}><Icon path={mdiTrashCanOutline}
     size={1}
     horizontal
     vertical
     rotate={180}
     /></button>
-</li>
+    </div>
+    </div>
 )
     
     
 if (this.state.editMode) {
-return editTemplate;
+template= editTemplate;
 }
 else {
-return viewTemplate;
+template= viewTemplate;
 }
-    
+    return <li>
+      {template}
+    </li>
   }
 }
 

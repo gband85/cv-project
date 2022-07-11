@@ -39,9 +39,9 @@ handleSubmit=(e)=>{
        this.setEditMode(false)
 }
 render() {
-    
+    let template;
   const editTemplate=(
-<form onSubmit={this.handleSubmit}>
+<form onSubmit={this.handleSubmit} className="section-item-form">
     <div className="input-field">
             <label htmlFor="schoolName">School</label>
     <input
@@ -87,16 +87,20 @@ render() {
     />
     </div>
     <div className="btn-group">
-    <button type='submit'>Save</button>
-   <button type='button' onClick={()=>this.setEditMode(false)}>Cancel</button>
+    <button type='submit' className="btn btn--save">Save</button>
+   <button type='button' className='btn btn--cancel' onClick={()=>this.setEditMode(false)}>Cancel</button>
     </div>
                 </form>);
  const viewTemplate=(
-    <li> 
+    
+    <div className='section__item--data'>
+    <div>
     <p className="section-position">{this.props.school.schoolDegree}</p>
         <p className="section-place">{this.props.school.schoolName} - {this.props.school.schoolLocation}</p>
         <p className="section-dates">{this.props.school.schoolStart} to {this.props.school.schoolEnd}</p>
-        <button type="button" onClick={()=>
+        </div>
+        <div className='btn-group-view'>
+        <button type="button" className='btn btn--icon' onClick={()=>
         {
             this.setEditMode(true)
             this.setNewSchool(this.props.school)
@@ -107,20 +111,26 @@ render() {
     vertical
     rotate={180}
     /></button>
-    <button type="button" onClick={()=>this.props.deleteSchool(this.props.id)}><Icon path={mdiTrashCanOutline}
+    <button type="button" className='btn btn--icon' onClick={()=>this.props.deleteSchool(this.props.id)}><Icon path={mdiTrashCanOutline}
     size={1}
     horizontal
     vertical
     rotate={180}
     /></button>
-        </li>
+    </div>
+        </div>
 )
                 if (this.state.editMode) {
-return editTemplate
+template= editTemplate
                 }
                 else {
-                    return viewTemplate
+                    template= viewTemplate
                 }
+                return (
+                    <li className='section-item'> 
+                    {template}
+                    </li>
+                )
 }
 }
 export default School;
