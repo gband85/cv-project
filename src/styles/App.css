@@ -5,7 +5,7 @@ li ul li {
   /* list-style: disc; */
 }
 .container {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   gap: 50px;
   /* max-width: 75%; */
@@ -15,4 +15,9 @@ li ul li {
   padding: 2rem;
   width: 768px;
   /* margin: 0 auto */
+}
+.container > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
