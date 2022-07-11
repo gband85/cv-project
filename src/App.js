@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import SchoolForm from "./components/SchoolForm";
 
 import School from "./components/School";
@@ -11,9 +11,7 @@ import Icon from '@mdi/react';
 import { mdiPlusBoxOutline } from '@mdi/js'; 
 import General from "./components/General";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
     this.state = {
       showSchoolForm:false,
       showJobForm:false,
@@ -24,9 +22,8 @@ class App extends Component {
       },
     schools: this.props.degrees,
       jobs: this.props.jobs,
-    };
- 
-  }
+    }; 
+  
 showForm=(section,value)=>{
 this.setState({
   ["show"+section+"Form"]:value
