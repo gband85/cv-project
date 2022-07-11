@@ -20,7 +20,6 @@ const App = () => {
       email: "keaton85@gmail.com",
       phone: "2566048356",
       },
-      jobs: this.props.jobs,
     }; 
   const [schools, setSchools] = useState(props.degrees);
   const [jobs, setJobs] = useState(props.jobs);
@@ -53,23 +52,23 @@ this.setState({
     console.log(editedSchoolList)
     setSchools(editedSchoolList)
   }
-  addJob=(job)=>{
+ const addJob=(job)=>{
     const newJob={...job,jobId:"job-"+uniqid()}
     console.log(newJob)
-     this.setJobs([...this.state.jobs,newJob])
+     setJobs([...jobs,newJob])
   }
-  deleteJob=(id)=>{
-    const remainingJobs=this.state.jobs.filter(job=>id!==job.jobId)
-    this.setJobs(remainingJobs)
+const deleteJob=(id)=>{
+    const remainingJobs=jobs.filter(job=>id!==job.jobId)
+    setJobs(remainingJobs)
   }
-  editJob=(id,newJob)=>{
-    const editedJobList=this.state.jobs.map(job=>{
+ const editJob=(id,newJob)=>{
+    const editedJobList=jobs.map(job=>{
       if (id===job.jobId) {
         return {...job,...newJob}
       }
       return job
     })
-    this.setJobs(editedJobList)
+   setJobs(editedJobList)
   }
   setGeneral=(value)=>{
     this.setState({
