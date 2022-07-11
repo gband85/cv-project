@@ -20,43 +20,37 @@ const App = () => {
       email: "keaton85@gmail.com",
       phone: "2566048356",
       },
-    schools: this.props.degrees,
       jobs: this.props.jobs,
     }; 
-  
+  const [schools, setSchools] = useState(props.degrees);
 showForm=(section,value)=>{
 this.setState({
   ["show"+section+"Form"]:value
 })
 }
-  addSchool=(school)=>{
+ const addSchool=(school)=>{
     const newSchool={...school,schoolId:"school-"+uniqid()}
     console.log(newSchool)
     // this.setState({
     //  // editEducation: false,
     //   schools: this.state.schools.concat(school),
     // })
-    this.setSchools([...this.state.schools,newSchool])
+    setSchools([...schools,newSchool])
   }
-  setSchools=(value)=>{
-    this.setState({
-     schools:value
-    })
+ const deleteSchool=(id)=>{
+    const remainingSchools=schools.filter(school=>id!==school.schoolId)
+    setSchools(remainingSchools)
   }
-  deleteSchool=(id)=>{
-    const remainingSchools=this.state.schools.filter(school=>id!==school.schoolId)
-    this.setSchools(remainingSchools)
-  }
-  editSchool=(id,newSchool)=>{
+  const editSchool=(id,newSchool)=>{
     console.log(newSchool)
-    const editedSchoolList=this.state.schools.map(school=>{
+    const editedSchoolList=schools.map(school=>{
       if (id===school.schoolId) {
         return {...school,...newSchool}
       }
       return school
     })
     console.log(editedSchoolList)
-    this.setSchools(editedSchoolList)
+    setSchools(editedSchoolList)
   }
   addJob=(job)=>{
     const newJob={...job,jobId:"job-"+uniqid()}
