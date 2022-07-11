@@ -6,34 +6,36 @@
     /* gap: 100px; */
     flex-direction: column;
 }
-.section-body {
+.section__body {
     display: flex;
 justify-content: space-between;
-margin-top: 10px;
+/* margin-top: 10px; */
 flex-direction: column;
 }
 .section-data {
 display: flex;
 justify-content: space-between;
     flex-direction: column;
-    gap: 5px;
+    /* gap: 5px; */
 }
-.section-title {
+.section__heading {
     /* font-weight: bold; */
     border-bottom: 1px gray solid;
-    padding-bottom: 5px;
-
+    /* padding-bottom: 5px; */
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 .section-tasks {
     /* display: flex; */
-margin-top: 10px;
+/* margin-top: 10px; */
 }
 .section-dates {
     color: gray;
 }
 .section-position {
     font-weight: bold;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 /* .section button {
 background: transparent;
@@ -43,29 +45,71 @@ border: none;
 background-color: seashell;
 cursor: pointer;
 } */
+.input-field {
+    margin-top: 20px;
+}
 .input-field input{
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin-top: 8px;
+    /* margin-bottom: 15px; */
     height: 35px;
     width: 100%;
     padding: 5px 10px;
 }
 .input-field label {
     font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 0.8rem;
+    /* margin-bottom: 10px; */
 }
-.btn-group button {
-    padding: 10px 20px;
+
+.input-field textarea {
+width: 100%;
+height: 100px;
+margin-top: 5px;
+}
+.btn-group {
+margin-top: 20px;
+    /* margin-bottom: 20px; */
+}
+.btn {
+        padding: 10px 20px;
     border-radius: 5px;
     border: none;
-    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: bold;
 }
-.btn-save {
+.btn--icon {
+    padding: 0 0;
+    background: transparent;
+}
+.btn--save {
     background-color: rgb(37, 87, 167);
     color: white;
     margin-right: 15px;
 }
-.btn-save:hover {
+
+.btn--save:hover {
     background-color: black;
     color: white;
+}
+.btn--cancel {
+    background-color: transparent;
+    color: rgb(37, 87, 167);
+}
+.btn--cancel:hover {
+background-color: #EEF1FE;
+}
+.section__item--data {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-group-view {
+    /* display: flex; */
+}
+.section__body {
+    /* margin-top: 20px; */
+}
+.section__body ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
