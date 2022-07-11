@@ -91,7 +91,7 @@ this.setJob({
          ></textarea>
          </div>
          <div className="btn-group">
-         <button type="submit">Save</button>
+         <button type="submit" className="btn--save">Save</button>
          <button type='button' onClick={()=>this.props.showForm("Job",false)}>Cancel</button>
           </div>
          </form>
