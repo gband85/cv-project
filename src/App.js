@@ -23,6 +23,7 @@ const App = () => {
       jobs: this.props.jobs,
     }; 
   const [schools, setSchools] = useState(props.degrees);
+  const [jobs, setJobs] = useState(props.jobs);
 showForm=(section,value)=>{
 this.setState({
   ["show"+section+"Form"]:value
@@ -56,11 +57,6 @@ this.setState({
     const newJob={...job,jobId:"job-"+uniqid()}
     console.log(newJob)
      this.setJobs([...this.state.jobs,newJob])
-  }
-  setJobs=(value)=>{
-    this.setState({
-     jobs:value
-    })
   }
   deleteJob=(id)=>{
     const remainingJobs=this.state.jobs.filter(job=>id!==job.jobId)
