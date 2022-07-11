@@ -11,7 +11,7 @@ import Icon from '@mdi/react';
 import { mdiPlusBoxOutline } from '@mdi/js'; 
 import General from "./components/General";
 
-const App = () => {
+const App = (props) => {
     this.state = {
       showSchoolForm:false,
       showJobForm:false,
@@ -78,7 +78,6 @@ const deleteJob=(id)=>{
   editGeneral=(newGeneral)=>{
     this.setGeneral(newGeneral)
   }
-  render() {
    
     return (
       <div className="container">
@@ -164,7 +163,7 @@ key={job.jobId}
           </li>
 </ul>
       </div>    );
-  }
+  
 }
 
 export default App;
