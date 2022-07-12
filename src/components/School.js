@@ -1,53 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiPencil, mdiTrashCanOutline } from '@mdi/js'; 
 import uniqid from "uniqid";
 
-class School extends Component {
-constructor(props) {
-super(props)
-this.state={
-editMode:false,
-
-newSchool:{
+const School =(props)=> {
+const [editMode,setEditMode]=useState(false);
+const [newSchool,setNewSchool]=useState({
     schoolDegree:"",
     schoolName:"",
     schoolLocation:"",
     schoolStart:"",
     schoolEnd:"",
-    }
-}
-}
-setEditMode=(value)=>{
-    this.setState({
-        editMode: value
-    })
-}
-
-setNewSchool=(school)=>{
-    this.setState({newSchool:school})
-}
-handleChange=(e)=>{
-    this.setNewSchool({
-        ...this.state.newSchool,
+    });
+const handleChange=(e)=>{
+    setNewSchool({
+        ...newSchool,
         [e.target.id]:e.target.value,
         })
 }
-handleSubmit=(e)=>{
+const handleSubmit=(e)=>{
     e.preventDefault();
-    this.props.editSchool(this.props.school.schoolId,this.state.newSchool)
-       this.setEditMode(false)
+    props.editSchool(props.school.schoolId,newSchool);
+       setEditMode(false)
 }
-render() {
+
     let template;
   const editTemplate=(
-<form onSubmit={this.handleSubmit} className="section-item-form">
+<form onSubmit={handleSubmit} className="section-item-form">
     <div className="input-field">
             <label htmlFor="schoolName">School</label>
     <input
         className="" 
-        onChange={this.handleChange}
-    value={this.state.newSchool.schoolName}
+        onChange={handleChange}
+    value={newSchool.schoolName}
     type="text"
     id="schoolName"
     required
@@ -57,8 +42,8 @@ render() {
             <label htmlFor="schoolDegree">Subject</label>
     <input
         className="" 
-       onChange={this.handleChange}
-    value={this.state.newSchool.schoolDegree}
+       onChange={handleChange}
+    value={newSchool.schoolDegree}
     type="text"
     id="schoolDegree"
     required
@@ -68,8 +53,8 @@ render() {
             <label htmlFor="schoolStart">Start Date</label>
     <input
         className="" 
-       onChange={this.handleChange}
-   value={this.state.newSchool.schoolStart}
+       onChange={handleChange}
+   value={newSchool.schoolStart}
     type="date"
     id="schoolStart"
     required
@@ -79,8 +64,8 @@ render() {
             <label htmlFor="schoolEnd">End Date</label>
     <input
         className="" 
-       onChange={this.handleChange}
-    value={this.state.newSchool.schoolEnd}
+       onChange={handleChange}
+    value={newSchool.schoolEnd}
     type="date"
     id="schoolEnd"
     required
@@ -88,22 +73,22 @@ render() {
     </div>
     <div className="btn-group">
     <button type='submit' className="btn btn--save">Save</button>
-   <button type='button' className='btn btn--cancel' onClick={()=>this.setEditMode(false)}>Cancel</button>
+   <button type='button' className='btn btn--cancel' onClick={()=>setEditMode(false)}>Cancel</button>
     </div>
                 </form>);
  const viewTemplate=(
     
     <div className='section__item--data'>
     <div>
-    <p className="section-position">{this.props.school.schoolDegree}</p>
-        <p className="section-place">{this.props.school.schoolName} - {this.props.school.schoolLocation}</p>
-        <p className="section-dates">{this.props.school.schoolStart} to {this.props.school.schoolEnd}</p>
+    <p className="section-position">{props.school.schoolDegree}</p>
+        <p className="section-place">{props.school.schoolName} - {props.school.schoolLocation}</p>
+        <p className="section-dates">{props.school.schoolStart} to {props.school.schoolEnd}</p>
         </div>
         <div className='btn-group-view'>
         <button type="button" className='btn btn--icon' onClick={()=>
         {
-            this.setEditMode(true)
-            this.setNewSchool(this.props.school)
+            setEditMode(true)
+            setNewSchool(props.school)
             }}
             ><Icon path={mdiPencil}
     size={1}
@@ -111,7 +96,7 @@ render() {
     vertical
     rotate={180}
     /></button>
-    <button type="button" className='btn btn--icon' onClick={()=>this.props.deleteSchool(this.props.id)}><Icon path={mdiTrashCanOutline}
+    <button type="button" className='btn btn--icon' onClick={()=>props.deleteSchool(props.id)}><Icon path={mdiTrashCanOutline}
     size={1}
     horizontal
     vertical
@@ -120,7 +105,7 @@ render() {
     </div>
         </div>
 )
-                if (this.state.editMode) {
+                if (editMode) {
 template= editTemplate
                 }
                 else {
@@ -131,6 +116,6 @@ template= editTemplate
                     {template}
                     </li>
                 )
-}
+
 }
 export default School;
