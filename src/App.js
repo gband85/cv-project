@@ -136,7 +136,11 @@ key={school.schoolId}
     /></button>
     </div>
         <div className="section__body">
+<<<<<<< HEAD
         {jobForm ? <JobForm addJob={addJob} setJobForm={setJobForm}/> : null}
+=======
+        {jobForm ? <JobForm addJob={this.addJob} setJobForm={setJobForm}/> : null}
+>>>>>>> 2463b33a0aade5d6fd697182700116b8cd91ace4
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
