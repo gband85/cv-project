@@ -57,7 +57,7 @@ id="email"
     const viewTemplate=(
       <div className="section__item--data">
      <div>
-        <p className="section__title">{props.general.name}</p>
+        <p className="section__title general">{props.general.name}</p>
         <p>{props.general.email}</p>
         <p>{props.general.phone}</p>
       </div>
