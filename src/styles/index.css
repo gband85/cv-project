@@ -12,15 +12,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 #root {
   display: flex;
   justify-content: center;
   background-color: grey;
   /* width: 100vw; */
-  max-height: 100%;
-  padding: 20px 0;
+  /* align-items: center; */
+  height: 100vh;
+  /* padding: 20px 0; */
+  padding-top: 30px;
 }
