@@ -134,7 +134,7 @@ template= editTemplate;
 else {
 template= viewTemplate;
 }
-    return (<li>
+    return (<li className='section-item'>
       {template}
     </li>)
   
