@@ -12,17 +12,11 @@ import { mdiPlusBoxOutline } from '@mdi/js';
 import General from "./components/General";
 
 const App = (props) => {
-    this.state = {
-      general:{
-      name: "Garrett Anderson",
-      email: "keaton85@gmail.com",
-      phone: "2566048356",
-      },
-    }; 
   const [schools, setSchools] = useState(props.degrees);
   const [jobs, setJobs] = useState(props.jobs);
   const [schoolForm, setSchoolForm]=useState(false);
   const [jobForm, setJobForm]=useState(false);
+  const [general, setGeneral]=useState(props.general);
 
  const addSchool=(school)=>{
     const newSchool={...school,schoolId:"school-"+uniqid()}
@@ -66,13 +60,8 @@ const deleteJob=(id)=>{
     })
    setJobs(editedJobList)
   }
-  setGeneral=(value)=>{
-    this.setState({
-      general:value
-    })
-  }
-  editGeneral=(newGeneral)=>{
-    this.setGeneral(newGeneral)
+ const editGeneral=(newGeneral)=>{
+    setGeneral(newGeneral)
   }
    
     return (
@@ -85,9 +74,9 @@ const deleteJob=(id)=>{
         <div className="section__body">
         <ul>
         <General
-          general={this.state.general}          
-          key={this.state.general.id}
-          editGeneral={this.editGeneral}
+          general={general}          
+          key={general.id}
+          editGeneral={editGeneral}
         />
         </ul>
         </div>
