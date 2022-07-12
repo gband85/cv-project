@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
 
+const GENERAL_DATA={
+  name: "Garrett Anderson",
+  email: "keaton85@gmail.com",
+  phone: "2566048356",
+}
+
 const DEGREE_DATA=     [
   {
     schoolDegree: "Bachelor of Science in Biology2",
@@ -51,7 +57,7 @@ const JOB_DATA=[{
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App degrees={DEGREE_DATA} jobs={JOB_DATA}/>
+    <App degrees={DEGREE_DATA} jobs={JOB_DATA} general={GENERAL_DATA}/>
   </React.StrictMode>
 );
 
