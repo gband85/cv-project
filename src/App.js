@@ -13,8 +13,6 @@ import General from "./components/General";
 
 const App = (props) => {
     this.state = {
-      showSchoolForm:false,
-      showJobForm:false,
       general:{
       name: "Garrett Anderson",
       email: "keaton85@gmail.com",
@@ -23,11 +21,9 @@ const App = (props) => {
     }; 
   const [schools, setSchools] = useState(props.degrees);
   const [jobs, setJobs] = useState(props.jobs);
-showForm=(section,value)=>{
-this.setState({
-  ["show"+section+"Form"]:value
-})
-}
+  const [schoolForm, setSchoolForm]=useState(false);
+  const [jobForm, setJobForm]=useState(false);
+
  const addSchool=(school)=>{
     const newSchool={...school,schoolId:"school-"+uniqid()}
     console.log(newSchool)
@@ -99,7 +95,7 @@ const deleteJob=(id)=>{
               <li className="section">
               <div className="section__heading">
         <p className="section__title">Education</p>
-        <button type="button" className='btn btn--icon' onClick={()=>{this.showForm("School",true)}}><Icon path={mdiPlusBoxOutline}
+        <button type="button" className='btn btn--icon' onClick={()=>{setSchoolForm(true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
     vertical
@@ -107,18 +103,18 @@ const deleteJob=(id)=>{
     /></button>
     </div>
         <div className="section__body">
-       {this.state.showSchoolForm ? <SchoolForm addSchool={this.addSchool} showForm={this.showForm}/> : null}
+       {schoolForm ? <SchoolForm addSchool={addSchool} setSchoolForm={setSchoolForm}/> : null}
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
-            {this.state.schools.map((school) => {
+            {schools.map((school) => {
               return (
                 <School
                 id={school.schoolId}
                 school={school}
 key={school.schoolId}
-                deleteSchool={this.deleteSchool}
-                editSchool={this.editSchool}
+                deleteSchool={deleteSchool}
+                editSchool={editSchool}
 
                 />
 
@@ -132,7 +128,7 @@ key={school.schoolId}
           <li className="section">
           <div className="section__heading">
         <p className="section__title">Work Experience</p>
-        <button type="button" className='btn btn--icon' onClick={()=>{this.showForm("Job",true)}}><Icon path={mdiPlusBoxOutline}
+        <button type="button" className='btn btn--icon' onClick={()=>{setJobForm(true)}}><Icon path={mdiPlusBoxOutline}
     size={1}
     horizontal
     vertical
@@ -140,18 +136,18 @@ key={school.schoolId}
     /></button>
     </div>
         <div className="section__body">
-        {this.state.showJobForm ? <JobForm addJob={this.addJob} showForm={this.showForm}/> : null}
+        {jobForm ? <JobForm addJob={this.addJob} setJobForm={setJobForm}/> : null}
           <ul>
 
             {/*In schools array, for each item,iterate over properties and return p element with property*/}
-            {this.state.jobs.map((job) => {
+            {jobs.map((job) => {
               return (
                 <Job
                 id={job.jobId}
                 job={job}
 key={job.jobId}
-                deleteJob={this.deleteJob}
-                editJob={this.editJob}
+                deleteJob={deleteJob}
+                editJob={editJob}
 
                 />
 
