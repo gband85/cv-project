@@ -63,11 +63,8 @@ const App = (props) => {
     <div className="container">
       <ul>
         <li className="section">
-          <div className="section__heading">
-            <p className="section__title">General Info</p>
-          </div>
           <div className="section__body">
-            <ul>
+            <ul className="section-list">
               <General
                 general={general}
                 key={general.id}
@@ -99,7 +96,7 @@ const App = (props) => {
             {schoolForm ? (
               <SchoolForm addSchool={addSchool} setSchoolForm={setSchoolForm} />
             ) : null}
-            <ul>
+            <ul className="section-list">
               {/*In schools array, for each item,iterate over properties and return p element with property*/}
               {schools.map((school) => {
                 return (
@@ -139,7 +136,7 @@ const App = (props) => {
             {jobForm ? (
               <JobForm addJob={addJob} setJobForm={setJobForm} />
             ) : null}
-            <ul>
+            <ul className="section-list">
               {/*In schools array, for each item,iterate over properties and return p element with property*/}
               {jobs.map((job) => {
                 return (
