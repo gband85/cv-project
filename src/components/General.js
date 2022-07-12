@@ -1,52 +1,36 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "../styles/sections.css";
 import "../styles/General.css";
 import Icon from "@mdi/react";
 import { mdiPencil } from "@mdi/js";
 
-class General extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      editMode: false,
-      newGeneral:{
-        name:"",
-        email:"",
-        phone:"",
-      }
-    }
-  }
-setEditMode=(value)=>{
-  this.setState({
-    editMode: value
-  })
-}
-setNewGeneral=(data)=>{
-  this.setState({newGeneral:data})
-}
-handleChange=(e)=>{
-  this.setNewGeneral({
-    ...this.state.newGeneral,
+const General = (props) => {
+
+  const [editMode, setEditMode]=useState(false);
+  const [newGeneral, setNewGeneral]=useState();
+const handleChange=(e)=>{
+  setNewGeneral({
+    ...newGeneral,
     [e.target.id]:e.target.value
   })
 }
-handleSubmit=(e)=>{
-  e.preventDefault()
-  this.props.editGeneral(this.state.newGeneral)
-  this.setEditMode(false)
+const handleSubmit=(e)=>{
+  e.preventDefault();
+  props.editGeneral(newGeneral)
+  setEditMode(false)
 }
-  render() {
+  
    const editTemplate=(
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={handleSubmit}>
          <div className="input-field">
         <label htmlFor="name">Name</label>
-<input className="" onChange={this.handleChange} value={this.state.newGeneral.name} type="text" id="name"/>
+<input className="" onChange={handleChange} value={newGeneral.name} type="text" id="name"/>
 </div>
 <div className="input-field">
         <label htmlFor="email">Email</label>
 <input className=""
-    onChange={this.handleChange}
-value={this.state.newGeneral.email}
+    onChange={handleChange}
+value={newGeneral.email}
 type="email"
 id="email"
 />
@@ -54,29 +38,29 @@ id="email"
 <div className="input-field">
         <label htmlFor="phone">Phone</label>
 <input className="" 
-    onChange={this.handleChange}
-    value={this.state.newGeneral.phone}
+    onChange={handleChange}
+    value={newGeneral.phone}
     type="number"
     id="phone"
 />
 </div>
 <div className="btn--group">
 <button type='submit' className="btn btn--save">Save</button>
-<button type='button' className="btn btn--cancel" onClick={()=>this.setEditMode(false)}>Cancel</button>
+<button type='button' className="btn btn--cancel" onClick={()=>setEditMode(false)}>Cancel</button>
 </div>
 </form> 
     )
     const viewTemplate=(
       <div className="section__item--data">
      <div>
-        <p className="section__title">{this.props.general.name}</p>
-        <p>{this.props.general.email}</p>
-        <p>{this.props.general.phone}</p>
+        <p className="section__title">{props.general.name}</p>
+        <p>{props.general.email}</p>
+        <p>{props.general.phone}</p>
       </div>
       <div>
         <button type="button" className="btn btn--icon" onClick={()=>{
-          this.setEditMode(true)
-          this.setNewGeneral(this.props.general)
+          setEditMode(true)
+          setNewGeneral(props.general)
         }}>
           <Icon
             path={mdiPencil}
@@ -90,14 +74,14 @@ id="email"
     </div>
     )
    
-if (this.state.editMode) {
+if (editMode) {
   return editTemplate
 }
 else {
   return viewTemplate
 }
     
-  }
+  
 }
 
 export default General;
