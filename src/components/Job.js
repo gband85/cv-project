@@ -100,9 +100,9 @@ const viewTemplate=(
   </p>
   <ul className="section-tasks">
   
-    {/* {this.props.job.jobTasks.map((task) => { */}
-      <li>{props.job.jobTasks}</li>
-    {/* })} */}
+    {props.job.jobTasks.map((task) => {
+     return <li>{task}</li>;
+    })}
   </ul>
 </div>
 <div className="btn-group-view">
