@@ -7,7 +7,11 @@ import { mdiPencil } from "@mdi/js";
 const General = (props) => {
 
   const [editMode, setEditMode]=useState(false);
-  const [newGeneral, setNewGeneral]=useState();
+  const [newGeneral, setNewGeneral]=useState({
+    name:"",
+    email:"",
+    phone:"",
+  });
 const handleChange=(e)=>{
   setNewGeneral({
     ...newGeneral,
