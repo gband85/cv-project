@@ -1,33 +1,24 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
-class SchoolForm extends Component {
-    constructor(props) {
-        super(props)
-        this.state={
-            school: {
-                schoolDegree:"",
+const SchoolForm =(props)=> {
+    const [school,setSchool]=useState({
+        schoolDegree:"",
 schoolName:"",
 schoolLocation:"",
 schoolStart:"",
 schoolEnd:"",
-            }
-        }
-    }
-    setSchool=(school)=>{
-        this.setState({school})
-    }
-
-    handleChange=(e)=>{
-this.setSchool({
-    ...this.state.school,
+    })
+   const handleChange=(e)=>{
+setSchool({
+    ...school,
     [e.target.id]:e.target.value,
     })
 }
 
-    handleSubmit=(e)=>{
+   const handleSubmit=(e)=>{
         e.preventDefault()
-        this.props.addSchool(this.state.school)
-        this.setSchool( {
+        props.addSchool(school)
+        setSchool( {
             schoolDegree:"",
 schoolName:"",
 schoolLocation:"",
@@ -35,16 +26,16 @@ schoolStart:"",
 schoolEnd:"",
     })
     }
-    render() {
+    
 
         return (
-<form onSubmit={this.handleSubmit}>
+<form onSubmit={handleSubmit}>
 <div className="input-field">
         <label htmlFor="schoolSubject">Subject</label>
 <input
     className="" 
-    onChange={this.handleChange}
-value={this.state.school.schoolDegree}
+    onChange={handleChange}
+value={school.schoolDegree}
 type="text"
 id="schoolDegree"
 required
@@ -54,8 +45,8 @@ required
         <label htmlFor="schoolName">School</label>
 <input
     className="" 
-    onChange={this.handleChange}
-value={this.state.school.schoolName}
+    onChange={handleChange}
+value={school.schoolName}
 type="text"
 id="schoolName"
 required
@@ -65,8 +56,8 @@ required
         <label htmlFor="schoolLocation">Location</label>
 <input
     className="" 
-    onChange={this.handleChange}
-value={this.state.school.schoolLocation}
+    onChange={handleChange}
+value={school.schoolLocation}
 type="text"
 id="schoolLocation"
 required
@@ -76,8 +67,8 @@ required
         <label htmlFor="schoolStart">Start Date</label>
 <input
     className="" 
-    onChange={this.handleChange}
-value={this.state.school.schoolStart}
+    onChange={handleChange}
+value={school.schoolStart}
 type="date"
 id="schoolStart"
 required
@@ -87,8 +78,8 @@ required
         <label htmlFor="schoolEnd">End Date</label>
 <input
     className="" 
-    onChange={this.handleChange}
-value={this.state.school.schoolEnd}
+    onChange={handleChange}
+value={school.schoolEnd}
 type="date"
 id="schoolEnd"
 required
@@ -96,12 +87,12 @@ required
 </div>
 <div className="btn-group">
 <button type='submit' className="btn--save">Save</button>
-<button type='button'onClick={()=>this.props.showForm("School",false)}>Cancel</button>
+<button type='button'onClick={()=>props.showForm("School",false)}>Cancel</button>
 </div>
             </form>
 
         )
-    }
+    
 }
 
 export default SchoolForm;
