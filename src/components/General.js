@@ -23,7 +23,7 @@ const handleSubmit=(e)=>{
   props.editGeneral(newGeneral)
   setEditMode(false)
 }
-  
+  let template;
    const editTemplate=(
       <form onSubmit={handleSubmit}>
          <div className="input-field">
@@ -79,13 +79,15 @@ id="email"
     )
    
 if (editMode) {
-  return editTemplate
+  template= editTemplate;
 }
 else {
-  return viewTemplate
+  template= viewTemplate;
 }
     
-  
+return (<li className='section-item'>
+  {template}
+</li>)
 }
 
 export default General;
