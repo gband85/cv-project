@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import { validatePosition } from "./validate";
 
 const JobForm = (props) => {
   const [job, setJob] = useState({
@@ -7,8 +8,9 @@ const JobForm = (props) => {
     jobLocation: "",
     jobStart: "",
     jobEnd: "",
-    jobTasks: [],
+    jobTasks: "",
   });
+  const [formError,setFormError]=useState(null);
   const handleChange = (e) => {
     setJob({
       ...job,
@@ -18,11 +20,19 @@ const JobForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError(null);
+    let error=validatePosition(job.jobPosition,"position");
+    if (error!==null) {
+    setFormError(error);
+    return
+    }
     props.addJob(job);
+    props.setJobForm(false);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+    <form onSubmit={handleSubmit} noValidate>
       <div className="input-field">
         <label htmlFor="jobPosition">Position</label>
         <input
@@ -87,6 +97,10 @@ const JobForm = (props) => {
         </button>
       </div>
     </form>
+    <div className="errors">
+{formError}
+  </div>
+  </div>
   );
 };
 
