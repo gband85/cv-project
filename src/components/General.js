@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencil } from "@mdi/js";
 import {validate} from "./validate";
