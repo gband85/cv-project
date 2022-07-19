@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import Icon from "@mdi/react";
 import { mdiPencil, mdiTrashCanOutline } from "@mdi/js";
+import {validatePosition } from "./validate";
 
 const Job = (props) => {
   const [editMode, setEditMode]=useState(false);
@@ -12,6 +13,7 @@ const Job = (props) => {
           jobEnd:"",
           jobTasks:[]
         });
+        const [formError,setFormError]=useState(null);
 const handleChange=(e)=>{
   setNewJob({
       ...newJob,
@@ -20,13 +22,20 @@ const handleChange=(e)=>{
 }
 const handleSubmit=(e)=>{
   e.preventDefault();
+  setFormError(null);
+  let error=validatePosition(newJob.jobPosition,"position");
+  if (error!==null) {
+  setFormError(error);
+  return
+  }
   props.editJob(props.job.jobId,newJob)
   setEditMode(false)
 }
   
     let template;
     const editTemplate=(
-      <form onSubmit={handleSubmit}>
+      <div>
+      <form onSubmit={handleSubmit} noValidate>
       <div className="input-field">
              <label htmlFor="jobPosition">Position</label>
      <input
@@ -35,6 +44,7 @@ const handleSubmit=(e)=>{
         value={newJob.jobPosition}
        type="text"
        id="jobPosition"
+       required
      />
      </div>
       <div className="input-field">
@@ -87,6 +97,10 @@ const handleSubmit=(e)=>{
      <button type='button' className="btn btn--cancel"  onClick={()=>setEditMode(false)}>Cancel</button>
       </div>
      </form>
+     <div className="errors">
+{formError}
+  </div>
+  </div>
   )
 const viewTemplate=(
  <div className="section__item--data">
@@ -98,12 +112,9 @@ const viewTemplate=(
   <p className="section-dates">
     {props.job.jobStart} to {props.job.jobEnd}
   </p>
-  <ul className="section-tasks">
-  
-    {props.job.jobTasks.map((task) => {
-     return <li>{task}</li>;
-    })}
-  </ul>
+  <p className="section-tasks">  
+    {props.job.jobTasks}
+  </p>
 </div>
 <div className="btn-group-view">
   <button type="button" className='btn btn--icon' onClick={()=>
