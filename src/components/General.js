@@ -3,7 +3,7 @@ import "../styles/sections.css";
 import "../styles/General.css";
 import Icon from "@mdi/react";
 import { mdiPencil } from "@mdi/js";
-import validate from "./validate";
+import {validate} from "./validate";
 
 const General = (props) => {
 
@@ -34,12 +34,6 @@ const handleSubmit=(e)=>{
   let template;
    const editTemplate=(
     <div>
-    <div className="errors">
-    
-      {errors.map((error)=>
-<p>{error}</p>
-      )}
-    </div>
       <form onSubmit={handleSubmit} noValidate>
          <div className="input-field">
         <label htmlFor="name">Name</label>
@@ -68,6 +62,12 @@ id="email"
 <button type='button' className="btn btn--cancel" onClick={()=>setEditMode(false)}>Cancel</button>
 </div>
 </form> 
+    <div className="errors">
+    
+    {errors.map((error)=>
+<p>{error}</p>
+    )}
+  </div>
 </div>
     )
     const viewTemplate=(
