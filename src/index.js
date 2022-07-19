@@ -4,53 +4,53 @@ import './styles/index.css';
 import App from './App';
 
 const GENERAL_DATA={
-  name: "Garrett Anderson",
-  email: "keaton85@gmail.com",
-  phone: "2566048356",
+  name: "John Smith",
+  email: "jsmith@testmail.com",
+  phone: "123-456-7890",
 }
 
 const DEGREE_DATA=     [
   {
-    schoolDegree: "Bachelor of Science in Biology2",
-    schoolName: "University of Alabama in Huntsville",
-   schoolLocation: "Huntsville, AL",
-    schoolStart: "2008-10-22",
-    schoolEnd: "2012-11-02",
+    schoolDegree: "Master of Science in Biology",
+    schoolName: "Science University",
+   schoolLocation: "Mainland,SC",
+    schoolStart: "2013-01-22",
+    schoolEnd: "2015-09-02",
     schoolId: "school-0"
   },
   {
-    schoolDegree: "Bachelor of Science in Biology3",
-    schoolName: "University of Alabama in Huntsville",
-    schoolLocation: "Huntsville, AL",
-    schoolStart: "2008-10-22",
-    schoolEnd: "2012-11-02",
+    schoolDegree: "Bachelor of Science in Biology",
+    schoolName: "Science University",
+    schoolLocation: "Mainland, SC",
+    schoolStart: "2008-08-22",
+    schoolEnd: "2012-12-02",
     schoolId: "school-1",
   },
 ];
 const JOB_DATA=[{
-  jobPosition: "Head Widgeteer",
-  jobCompany: "Widgets, Inc.",
+  jobPosition: "Head Scientist",
+  jobCompany: "Genes, Inc.",
   jobLocation: "Rochester, NY",        
   jobTasks: [
-    "Build widgets",
-    "Fix widgets",
-    "Sell widgets",
+    "Create mutant dinosaurs with laser-eyes, enabling armies to wage war like never before",
+    "Supervise creation of novel therapies for cancer treatment",
+    "Supervise clinical trials",
   ],
-  jobStart: "2013-02-13",
-  jobEnd: "2019-11-02",
+  jobStart: "2019-11-13",
+  jobEnd: "Current",
   jobId: "job-0",
 },
 {
-  jobPosition: "CEO",
-  jobCompany: "Widgets, Inc.",
+  jobPosition: "Junior Scientist",
+  jobCompany: "Genes, Inc.",
   jobLocation: "Rochester, NY",        
   jobTasks: [
-    "Build widgets",
-    "Fix widgets",
-    "Sell widgets",
+    "Perform genetic sequencing",
+    "Test samples of unknown genetic material",
+    "Perform research",
   ],
-  jobStart: "2020-02-13",
-  jobEnd: "2020-11-02",
+  jobStart: "2016-02-13",
+  jobEnd: "2019-11-02",
   jobId: "job-1",
 }]
 
