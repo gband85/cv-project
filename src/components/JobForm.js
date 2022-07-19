@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import { useState } from "react";
 import { validatePosition } from "./validate";
 
 const JobForm = (props) => {
@@ -10,7 +10,7 @@ const JobForm = (props) => {
     jobEnd: "",
     jobTasks: "",
   });
-  const [formError,setFormError]=useState(null);
+  const [formError, setFormError] = useState(null);
   const handleChange = (e) => {
     setJob({
       ...job,
@@ -21,10 +21,10 @@ const JobForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormError(null);
-    let error=validatePosition(job.jobPosition,"position");
-    if (error!==null) {
-    setFormError(error);
-    return
+    let error = validatePosition(job.jobPosition, "position");
+    if (error !== null) {
+      setFormError(error);
+      return;
     }
     props.addJob(job);
     props.setJobForm(false);
@@ -35,80 +35,78 @@ const JobForm = (props) => {
       jobStart: "",
       jobEnd: "",
       jobTasks: "",
-    })
+    });
   };
 
   return (
     <div>
-    <form onSubmit={handleSubmit} noValidate>
-      <div className="input-field">
-        <label htmlFor="jobPosition">Position</label>
-        <input
-          name="jobPosition"
-          onChange={handleChange}
-          value={job.jobPosition}
-          type="text"
-          id="jobPosition"
-        />
-      </div>
-      <div className="input-field">
-        <label htmlFor="jobCompany">Company</label>
-        <input
-          name="jobCompany"
-          onChange={handleChange}
-          value={job.jobCompany}
-          type="text"
-          id="jobCompany"
-        />
-      </div>
-      <div className="input-field">
-        <label htmlFor="jobLocation">Location</label>
-        <input
-          onChange={handleChange}
-          value={job.jobLocation}
-          type="text"
-          id="jobLocation"
-        />
-      </div>
-      <div className="input-field">
-        <label htmlFor="jobStart">Start date</label>
-        <input
-          onChange={handleChange}
-          value={job.jobStart}
-          type="date"
-          id="jobStart"
-        />
-      </div>
-      <div className="input-field">
-        <label htmlFor="jobEnd">End date</label>
-        <input
-          onChange={handleChange}
-          value={job.jobEnd}
-          type="date"
-          id="jobEnd"
-        />
-      </div>
-      <div className="input-field">
-        <label htmlFor="jobTasks">Tasks</label>
-        <textarea
-          onChange={handleChange}
-          value={job.jobTasks}
-          id="jobTasks"
-        ></textarea>
-      </div>
-      <div className="btn-group">
-        <button type="submit" className="btn--save">
-          Save
-        </button>
-        <button type="button" onClick={() => props.setJobForm(false)}>
-          Cancel
-        </button>
-      </div>
-    </form>
-    <div className="errors">
-{formError}
-  </div>
-  </div>
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="input-field">
+          <label htmlFor="jobPosition">Position</label>
+          <input
+            name="jobPosition"
+            onChange={handleChange}
+            value={job.jobPosition}
+            type="text"
+            id="jobPosition"
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="jobCompany">Company</label>
+          <input
+            name="jobCompany"
+            onChange={handleChange}
+            value={job.jobCompany}
+            type="text"
+            id="jobCompany"
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="jobLocation">Location</label>
+          <input
+            onChange={handleChange}
+            value={job.jobLocation}
+            type="text"
+            id="jobLocation"
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="jobStart">Start date</label>
+          <input
+            onChange={handleChange}
+            value={job.jobStart}
+            type="date"
+            id="jobStart"
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="jobEnd">End date</label>
+          <input
+            onChange={handleChange}
+            value={job.jobEnd}
+            type="date"
+            id="jobEnd"
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="jobTasks">Tasks</label>
+          <textarea
+            onChange={handleChange}
+            value={job.jobTasks}
+            id="jobTasks"
+          ></textarea>
+        </div>
+        <div className="btn--group">
+          <button type="submit" className="btn--save">
+            Save
+          </button>
+          <button type="button" onClick={() => props.setJobForm(false)}>
+            Cancel
+          </button>
+        </div>
+      </form>
+      <div className="errors">{formError}</div>
+    </div>
   );
 };
 
