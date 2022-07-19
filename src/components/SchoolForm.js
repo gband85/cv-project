@@ -1,6 +1,8 @@
 import React, { Component, useState } from "react";
+import { validatePosition } from "./validate";
 
 const SchoolForm =(props)=> {
+    const [formError,setFormError]=useState(null);
     const [school,setSchool]=useState({
         schoolDegree:"",
 schoolName:"",
@@ -17,7 +19,14 @@ setSchool({
 
    const handleSubmit=(e)=>{
         e.preventDefault()
+        setFormError(null);
+        let error=validatePosition(school.schoolDegree,"subject");
+        if (error!==null) {
+        setFormError(error);
+        return
+        }
         props.addSchool(school)
+        props.setSchoolForm(false);
         setSchool( {
             schoolDegree:"",
 schoolName:"",
@@ -29,6 +38,7 @@ schoolEnd:"",
     
 
         return (
+            <div>
 <form onSubmit={handleSubmit}>
 <div className="input-field">
         <label htmlFor="schoolSubject">Subject</label>
@@ -86,7 +96,10 @@ id="schoolEnd"
 <button type='button' className="btn btn--cancel" onClick={()=>props.setSchoolForm(false)}>Cancel</button>
 </div>
             </form>
-
+            <div className="errors">
+{formError}
+  </div>
+  </div>
         )
     
 }
