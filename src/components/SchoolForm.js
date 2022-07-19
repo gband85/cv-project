@@ -38,7 +38,7 @@ const SchoolForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="input-field">
           <label htmlFor="schoolSubject">Subject</label>
           <input
@@ -47,7 +47,6 @@ const SchoolForm = (props) => {
             value={school.schoolDegree}
             type="text"
             id="schoolDegree"
-            required
           />
         </div>
         <div className="input-field">
