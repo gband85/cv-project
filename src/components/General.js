@@ -1,6 +1,4 @@
 import React, { Component, useState } from "react";
-import "../styles/sections.css";
-import "../styles/General.css";
 import Icon from "@mdi/react";
 import { mdiPencil } from "@mdi/js";
 import {validate} from "./validate";
