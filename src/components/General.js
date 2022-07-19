@@ -3,6 +3,7 @@ import "../styles/sections.css";
 import "../styles/General.css";
 import Icon from "@mdi/react";
 import { mdiPencil } from "@mdi/js";
+import validate from "./validate";
 
 const General = (props) => {
 
@@ -12,6 +13,7 @@ const General = (props) => {
     email:"",
     phone:"",
   });
+  const [errors,setErrors]=useState([]);
 const handleChange=(e)=>{
   setNewGeneral({
     ...newGeneral,
@@ -19,13 +21,26 @@ const handleChange=(e)=>{
   })
 }
 const handleSubmit=(e)=>{
+  setErrors([]);
   e.preventDefault();
-  props.editGeneral(newGeneral)
-  setEditMode(false)
+  const errors=validate(newGeneral.name,newGeneral.email,newGeneral.phone);
+  if (errors.length>0) {
+    setErrors(errors);
+  return;  
+}
+  props.editGeneral(newGeneral);
+  setEditMode(false);
 }
   let template;
    const editTemplate=(
-      <form onSubmit={handleSubmit}>
+    <div>
+    <div className="errors">
+    
+      {errors.map((error)=>
+<p>{error}</p>
+      )}
+    </div>
+      <form onSubmit={handleSubmit} noValidate>
          <div className="input-field">
         <label htmlFor="name">Name</label>
 <input className="" onChange={handleChange} value={newGeneral.name} type="text" id="name"/>
@@ -44,7 +59,7 @@ id="email"
 <input className="" 
     onChange={handleChange}
     value={newGeneral.phone}
-    type="number"
+    type="string"
     id="phone"
 />
 </div>
@@ -53,6 +68,7 @@ id="email"
 <button type='button' className="btn btn--cancel" onClick={()=>setEditMode(false)}>Cancel</button>
 </div>
 </form> 
+</div>
     )
     const viewTemplate=(
       <div className="section__item--data">
