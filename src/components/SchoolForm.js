@@ -49,7 +49,6 @@ required
 value={school.schoolName}
 type="text"
 id="schoolName"
-required
 />
 </div>
 <div className="input-field">
@@ -60,7 +59,6 @@ required
 value={school.schoolLocation}
 type="text"
 id="schoolLocation"
-required
 />
 </div>
 <div className="input-field">
@@ -71,7 +69,6 @@ required
 value={school.schoolStart}
 type="date"
 id="schoolStart"
-required
 />
 </div>
 <div className="input-field">
@@ -82,12 +79,11 @@ required
 value={school.schoolEnd}
 type="date"
 id="schoolEnd"
-required
 />
 </div>
-<div className="btn-group">
-<button type='submit' className="btn--save">Save</button>
-<button type='button'onClick={()=>props.showForm("School",false)}>Cancel</button>
+<div className="btn--group">
+<button type='submit' className="btn btn--save">Save</button>
+<button type='button' className="btn btn--cancel" onClick={()=>props.setSchoolForm(false)}>Cancel</button>
 </div>
             </form>
 
