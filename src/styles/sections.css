@@ -59,13 +59,20 @@ border: none;
 background-color: seashell;
 cursor: pointer;
 } */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .input-field {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 .input-field input{
     margin-top: 8px;
     /* margin-bottom: 15px; */
-    height: 35px;
+    height: 40px;
     width: 100%;
     padding: 5px 10px;
 }
@@ -74,13 +81,26 @@ cursor: pointer;
     font-size: 0.8rem;
     /* margin-bottom: 10px; */
 }
-
+button[type="submit"] {
+    /* width: 25%; */
+    justify-self: left;
+}
+.general-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.errors {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
 .input-field textarea {
 width: 100%;
 height: 100px;
 margin-top: 5px;
+padding: 10px 5px;
 }
-.btn-group {
+.btn--group {
 margin-top: 20px;
     /* margin-bottom: 20px; */
 }
