@@ -28,6 +28,14 @@ const JobForm = (props) => {
     }
     props.addJob(job);
     props.setJobForm(false);
+    setJob({
+      jobPosition: "",
+      jobCompany: "",
+      jobLocation: "",
+      jobStart: "",
+      jobEnd: "",
+      jobTasks: "",
+    })
   };
 
   return (
