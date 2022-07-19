@@ -1,4 +1,4 @@
-const validate = (name, email, phone) => {
+export const validate = (name, email, phone) => {
   const validPhone = /[0-9]{3}-[0-9]{3}-[0-9]{4}/;
   const errors = [];
   if (name.length === 0) {
@@ -18,4 +18,19 @@ const validate = (name, email, phone) => {
   }
   return errors;
 };
-export default validate;
+export const validatePosition=(position,type)=>{
+    let error=null;
+if (!position) {
+    error=<p>Please enter a {type}.</p>;    
+}
+return error;
+}
+// export const Errors=(props)=>{
+// return       <div className="errors">
+    
+// {props.errors.map(error=>
+// <p>{error}</p>
+// )}
+// </div>
+//}
+
