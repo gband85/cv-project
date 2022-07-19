@@ -1,11 +1,11 @@
 import "./styles/App.css";
-import React, { Component, useState } from "react";
+import "./styles/sections.css";
+import { useState } from "react";
 import SchoolForm from "./components/SchoolForm";
 
 import School from "./components/School";
 import Job from "./components/Job";
 import JobForm from "./components/JobForm";
-import "./styles/sections.css";
 import uniqid from "uniqid";
 import Icon from "@mdi/react";
 import { mdiPlusBoxOutline } from "@mdi/js";
@@ -92,10 +92,10 @@ const App = (props) => {
               />
             </button>
           </div>
+          {schoolForm ? (
+            <SchoolForm addSchool={addSchool} setSchoolForm={setSchoolForm} />
+          ) : null}
           <div className="section__body">
-            {schoolForm ? (
-              <SchoolForm addSchool={addSchool} setSchoolForm={setSchoolForm} />
-            ) : null}
             <ul className="section-list">
               {/*In schools array, for each item,iterate over properties and return p element with property*/}
               {schools.map((school) => {
@@ -132,10 +132,8 @@ const App = (props) => {
               />
             </button>
           </div>
+          {jobForm ? <JobForm addJob={addJob} setJobForm={setJobForm} /> : null}
           <div className="section__body">
-            {jobForm ? (
-              <JobForm addJob={addJob} setJobForm={setJobForm} />
-            ) : null}
             <ul className="section-list">
               {/*In schools array, for each item,iterate over properties and return p element with property*/}
               {jobs.map((job) => {
