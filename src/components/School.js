@@ -2,9 +2,11 @@ import React, { Component, useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiPencil, mdiTrashCanOutline } from '@mdi/js'; 
 import uniqid from "uniqid";
+import { validatePosition } from './validate';
 
 const School =(props)=> {
 const [editMode,setEditMode]=useState(false);
+const [formError,setFormError]=useState(null);
 const [newSchool,setNewSchool]=useState({
     schoolDegree:"",
     schoolName:"",
@@ -20,25 +22,21 @@ const handleChange=(e)=>{
 }
 const handleSubmit=(e)=>{
     e.preventDefault();
+    setFormError(null);
+    let error=validatePosition(newSchool.schoolDegree,"subject");
+    if (error!==null) {
+    setFormError(error);
+    return
+    }
     props.editSchool(props.school.schoolId,newSchool);
        setEditMode(false)
 }
 
     let template;
   const editTemplate=(
-<form onSubmit={handleSubmit} className="section-item-form">
-    <div className="input-field">
-            <label htmlFor="schoolName">School</label>
-    <input
-        className="" 
-        onChange={handleChange}
-    value={newSchool.schoolName}
-    type="text"
-    id="schoolName"
-    required
-    />
-    </div>
-    <div className="input-field">
+    <div>
+<form onSubmit={handleSubmit} className="section-item-form" noValidate>
+<div className="input-field">
             <label htmlFor="schoolDegree">Subject</label>
     <input
         className="" 
@@ -50,6 +48,16 @@ const handleSubmit=(e)=>{
     />
     </div>
     <div className="input-field">
+            <label htmlFor="schoolName">School</label>
+    <input
+        className="" 
+        onChange={handleChange}
+    value={newSchool.schoolName}
+    type="text"
+    id="schoolName"
+    />
+    </div>
+    <div className="input-field">
             <label htmlFor="schoolStart">Start Date</label>
     <input
         className="" 
@@ -57,7 +65,6 @@ const handleSubmit=(e)=>{
    value={newSchool.schoolStart}
     type="date"
     id="schoolStart"
-    required
     />
     </div>
     <div className="input-field">
@@ -68,14 +75,18 @@ const handleSubmit=(e)=>{
     value={newSchool.schoolEnd}
     type="date"
     id="schoolEnd"
-    required
     />
     </div>
     <div className="btn-group">
     <button type='submit' className="btn btn--save">Save</button>
    <button type='button' className='btn btn--cancel' onClick={()=>setEditMode(false)}>Cancel</button>
     </div>
-                </form>);
+                </form>
+                <div className="errors">
+{formError}
+  </div>
+  </div>
+                );
  const viewTemplate=(
     
     <div className='section__item--data'>
