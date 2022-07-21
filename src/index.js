@@ -57,6 +57,9 @@ const JOB_DATA=[{
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+      <div class="navbar">
+    <h1 class="navbar__brand">Resume Builder</h1>
+</div>
     <App degrees={DEGREE_DATA} jobs={JOB_DATA} general={GENERAL_DATA}/>
   </React.StrictMode>
 );
